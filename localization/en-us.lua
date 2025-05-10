@@ -11,9 +11,9 @@ return {
                 }
             },
             j_arch_brown_joker = {
-                name = 'Brown Joker',
-                text = { "Scored {C:spades}Clubs{} earn {C:gold}+#1#${} ",
-                         "Gains {C:gold}+#2#${} per Scored {C:diamonds}Diamond{}"
+                name = 'Chocolate Bar',
+                text = { "{C:green}#1# in #2#{} chance to give a Double Tag at end of blind",
+                         "{C:inactive}(Is destroyed after #3# triggers){}"
                 }
             },
         },
