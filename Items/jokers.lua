@@ -62,7 +62,7 @@ SMODS.Joker({
 				local arch = card.ability.extra
 				arch.dollar = arch.dollar + arch.dollargain
 			end
-			if context.other_card:is_suit("Spades") then
+			if context.other_card:is_suit("Clubs") then
 				local arch = card.ability.extra
 				return{
 					dollars = arch.dollar,

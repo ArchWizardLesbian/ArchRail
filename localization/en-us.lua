@@ -12,7 +12,7 @@ return {
             },
             j_arch_brown_joker = {
                 name = 'Brown Joker',
-                text = { "Scored {C:spades}Spades{} earn {C:gold}+#1#${} ",
+                text = { "Scored {C:spades}Clubs{} earn {C:gold}+#1#${} ",
                          "Gains {C:gold}+#2#${} per Scored {C:diamonds}Diamond{}"
                 }
             },
