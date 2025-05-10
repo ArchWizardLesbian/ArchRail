@@ -14,22 +14,21 @@ SMODS.Joker({
 	discovered = false,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		info_queue[#info_queue + 1] = G.P_CENTERS.m_bonus
-		local anv = card.ability.extra
+		local arch = card.ability.extra
 		return {
-			vars = { anv.mult },
+			vars = { arch.mult, arch.multgain },
 		}
 	end,
 	calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play then
 			if context.other_card:is_suit("Hearts") then
-				local anv = card.ability.extra
-				anv.mult = anv.mult + anv.multgain
+				local arch = card.ability.extra
+				arch.mult = arch.mult + arch.multgain
 			end
 			if context.other_card:is_suit("Clubs") then
-				local anv = card.ability.extra
+				local arch = card.ability.extra
 				return{
-					mult = anv.mult,
+					mult = arch.mult,
 				}
 			end
 		end

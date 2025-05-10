@@ -3,7 +3,14 @@ return {
         Back={},
         Blind={},
         Edition={},
-        Joker={},
+        Joker={
+            j_arch_pink_joker = {
+                name = 'Pink Joker',
+                text = { "Scored {C:clubs}Clubs{} give {C:red}+#1#{} Mult",
+                         "Gains {C:red}+#2#{} Mult per Scored {C:hearts}Heart{}"
+                }
+            },
+        },
         Enhanced = {},
         Other={},
         Planet={},
