@@ -34,3 +34,40 @@ SMODS.Joker({
 		end
 	end,
 })
+
+SMODS.Joker({
+	key = "brown_joker",
+	atlas = "joke",
+	pos = { x = 1, y = 0 },
+	rarity = 3,
+	cost = 8,
+	config = {
+		extra = {
+			dollar = 1,
+			dollargain = 0.1
+		},
+	},
+	unlocked = true,
+	discovered = false,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		local arch = card.ability.extra
+		return {
+			vars = { arch.dollar, arch.dollargain },
+		}
+	end,
+	calculate = function(self, card, context)
+		if context.individual and context.cardarea == G.play then
+			if context.other_card:is_suit("Diamonds") then
+				local arch = card.ability.extra
+				arch.dollar = arch.dollar + arch.dollargain
+			end
+			if context.other_card:is_suit("Spades") then
+				local arch = card.ability.extra
+				return{
+					dollars = arch.dollar,
+				}
+			end
+		end
+	end,
+})
