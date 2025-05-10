@@ -2,33 +2,56 @@ SMODS.Joker({
 	key = "pink_joker",
 	atlas = "joke",
 	pos = { x = 0, y = 0 },
-	rarity = 3,
-	cost = 8,
+	rarity = 2,
+	cost = 5,
 	config = {
 		extra = {
-			mult = 4,
-			multgain = 1
+			max = 36,
+			min = 0
 		},
 	},
 	unlocked = true,
 	discovered = false,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		local arch = card.ability.extra
-		return {
-			vars = { arch.mult, arch.multgain },
-		}
-	end,
+		local r_mults = {}
+        for i = card.ability.extra.min, card.ability.extra.max do
+            r_mults[#r_mults + 1] = tostring(i)
+        end
+        local loc_mult = ' ' .. (localize('k_mult')) .. ' '
+        main_start = {
+			{ n = G.UIT.T, config = { text = ' Scored', colour = G.C.UI.TEXT_DARK, scale = 0.32 } },
+			{ n = G.UIT.T, config = { text = ' Wild Cards', colour = G.C.FILTER, scale = 0.32 } },
+			{ n = G.UIT.T, config = { text = ' give', colour = G.C.UI.TEXT_DARK, scale = 0.32 } },
+            { n = G.UIT.T, config = { text = ' +', colour = G.C.MULT, scale = 0.32 } },
+            { n = G.UIT.O, config = { object = DynaText({ string = r_mults, colours = { G.C.RED }, pop_in_rate = 9999999, silent = true, random_element = true, pop_delay = 0.5, scale = 0.32, min_cycle_time = 0 }) } },
+            {
+                n = G.UIT.O,
+                config = {
+                    object = DynaText({
+                        string = {
+                            { string = 'rand()', colour = G.C.JOKER_GREY }, { string = "#@" .. (G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards].base.id or 11) .. (G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards].base.suit:sub(1, 1) or 'D'), colour = G.C.RED },
+                            loc_mult, loc_mult, loc_mult, loc_mult, loc_mult, loc_mult, loc_mult, loc_mult, loc_mult,
+                            loc_mult, loc_mult, loc_mult, loc_mult },
+                        colours = { G.C.UI.TEXT_DARK },
+                        pop_in_rate = 9999999,
+                        silent = true,
+                        random_element = true,
+                        pop_delay = 0.2011,
+                        scale = 0.32,
+                        min_cycle_time = 0
+                    })
+                }
+            },
+        }
+        return { main_start = main_start }
+    end,
 	calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play then
-			if context.other_card:is_suit("Hearts") then
-				local arch = card.ability.extra
-				arch.mult = arch.mult + arch.multgain
-			end
-			if context.other_card:is_suit("Clubs") then
+			if context.other_card.ability.effect == "Wild Card" then
 				local arch = card.ability.extra
 				return{
-					mult = arch.mult,
+					mult = pseudorandom('partytime', card.ability.extra.min, card.ability.extra.max)
 				}
 			end
 		end
@@ -40,7 +63,7 @@ SMODS.Joker({
 	atlas = "joke",
 	pos = { x = 1, y = 0 },
 	rarity = 3,
-	cost = 8,
+	cost = 6,
 	config = {
 		extra = {
 			odds = 4,
@@ -49,7 +72,7 @@ SMODS.Joker({
 	},
 	unlocked = true,
 	discovered = false,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	loc_vars = function(self, info_queue, card)
 		local arch = card.ability.extra
 		return {
@@ -57,7 +80,7 @@ SMODS.Joker({
 		}
 	end,
 	calculate = function(self, card, context)
-        if context.end_of_round and context.game_over == false and context.main_eval then
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
             if pseudorandom('arch_choco') < G.GAME.probabilities.normal / card.ability.extra.odds then
 				add_tag(Tag('tag_double'))
 				play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
@@ -74,4 +97,28 @@ SMODS.Joker({
 			end
 		end
     end
+})
+
+SMODS.Joker({
+	key = "pretzel",
+	atlas = "joke",
+	pos = { x = 2, y = 0 },
+	rarity = 2,
+	cost = 3,
+	allow_duplicates = true,
+	config = {
+		extra = {
+			odds = 4,
+			odds2 = 4
+		},
+	},
+	unlocked = true,
+	discovered = false,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		local arch = card.ability.extra
+		return {
+			vars = { (G.GAME and G.GAME.probabilities.normal or 1), arch.odds, arch.odds2 },
+		}
+	end,
 })
