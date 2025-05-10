@@ -6,7 +6,7 @@ SMODS.Joker({
 	cost = 8,
 	config = {
 		extra = {
-			mult = 4,
+			mult = 8,
 			multgain = 1
 		},
 	},
