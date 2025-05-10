@@ -3,13 +3,13 @@
 	"name": "ArchRail",
 	"display_name": "ArchRail",
 	"author": ["railgun, Mil0Meg4, Revo, Blazingulag"],
-	"website_url": "https://github.com/Mil0Meg4/Aneyh-Vampirica",
-	"description": "Fear the Primordial.",
+	"website_url": "https://github.com/ArchWizardLesbian/ArchRail",
+	"description": "An early access mod",
 	"prefix": "arch",
 	"main_file": "main.lua",
-	"priority": 116,
-	"badge_colour": "3D3446",
-	"badge_text_colour": "880808",
+	"priority": 250,
+	"badge_colour": "880808",
+	"badge_text_colour": "3D3446",
 	"version": "0.1a",
 	"dependencies": ["Steamodded (>=1.0.0~ALPHA-1428c)","Talisman (>=2.0.0)"]
 }
