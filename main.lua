@@ -1,6 +1,7 @@
 ANVA = {}
 ANVA.C = {}
 SMODS.load_file("Items/jokers.lua")()
+SMODS.load_file("Items/shaders.lua")()
 
 --joker ATLAS
 SMODS.Atlas{
