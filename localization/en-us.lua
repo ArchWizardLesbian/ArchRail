@@ -12,13 +12,19 @@ return {
             j_arch_brown_joker = {
                 name = 'Chocolate Bar',
                 text = { "{C:green}#1# in #2#{} chance to give a {C:attention}Double Tag{} at end of blind",
-                         "{C:inactive}(Is destroyed after #3# triggers){}"
+                         "{C:inactive}(Is destroyed after {C:attention}#3#{C:inactive} triggers){}"
                 }
             },
             j_arch_pretzel = {
                 name = 'Pretzel',
                 text = { "{C:green}#1# in #2#{} chance to level {C:attention}Two Pair{} at end of blind,",
                          "if failed, has a {C:green}#1# in #3#{} chance to be destroyed"
+                }
+            },
+            j_arch_deadcard = {
+                name = 'Faded Memory',
+                text = { "{C:green}50%{} chance to retrigger held in hand effects",
+                         "{C:inactive}(Fixed odds){}"
                 }
             },
         },

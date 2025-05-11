@@ -3,7 +3,7 @@ SMODS.Joker({
 	atlas = "joke",
 	pos = { x = 0, y = 0 },
 	rarity = 2,
-	cost = 5,
+	cost = 4,
 	config = {
 		extra = {
 			max = 36,
@@ -103,13 +103,13 @@ SMODS.Joker({
 	key = "pretzel",
 	atlas = "joke",
 	pos = { x = 2, y = 0 },
-	rarity = 1,
+	rarity = 2,
 	cost = 1,
 	allow_duplicates = true,
 	config = {
 		extra = {
-			odds = 4,
-			odds2 = 4
+			odds = 3,
+			odds2 = 6
 		},
 	},
 	unlocked = true,
@@ -139,4 +139,30 @@ SMODS.Joker({
 			end
 		end
 	end
+})
+
+SMODS.Joker({
+	key = "deadcard",
+	atlas = "joke",
+	pos = { x = 3, y = 0 },
+	rarity = 1,
+	cost = 3,
+	allow_duplicates = true,
+	config = {},
+	unlocked = true,
+	discovered = false,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		local arch = card.ability.extra
+		return {}
+	end,
+	calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.hand and (next(context.card_effects[1]) or #context.card_effects > 1) then
+			if pseudorandom('alostmemory') < 0.5 then
+				return {
+					repetitions = 1
+				}
+			end
+		end
+    end
 })
