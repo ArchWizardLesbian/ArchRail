@@ -23,8 +23,13 @@ return {
             },
             j_arch_deadcard = {
                 name = 'Faded Memory',
-                text = { "{C:green}50%{} chance to retrigger held in hand effects",
-                         "{C:inactive}(Fixed odds){}"
+                text = { "{C:green}Fixed 50%{} chance to retrigger held in hand effects"
+                }
+            },
+            j_arch_todust = {
+                name = 'To Dust',
+                text = { "{C:green}Fixed 75%{} chance to retrigger held in hand effects",
+                         "of {C:spades}Spades{} and {C:clubs}Clubs{} twice"
                 }
             },
         },

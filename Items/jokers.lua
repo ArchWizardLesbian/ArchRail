@@ -66,8 +66,8 @@ SMODS.Joker({
 	cost = 6,
 	config = {
 		extra = {
-			odds = 4,
-			triggersleft = 4
+			odds = 2,
+			triggersleft = 6
 		},
 	},
 	unlocked = true,
@@ -165,4 +165,39 @@ SMODS.Joker({
 			end
 		end
     end
+})
+
+SMODS.Joker({
+    key = "todust",
+    atlas = "joke",
+    pos = { x = 4, y = 0 },
+    rarity = "fuse_fusion",
+    cost = 10,
+    unlocked = true,
+    discovered = false,
+    eternal_compat = true,
+    perishable_compat = true,
+    blueprint_compat = true,
+    config = {
+        extra = {
+            Xmult = 0.1, 
+            joker1 = "arch_deadcard",
+            joker2 = "j_blackboard"
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+		local arch = card.ability.extra
+		return {}
+	end,
+	calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.hand and (next(context.card_effects[1]) or #context.card_effects > 1) then
+			if context.other_card:is_suit("Spades") or context.other_card:is_suit("Clubs") then
+				if pseudorandom('alostmemory') < 0.75 then
+					return {
+						repetitions = 2
+					}
+				end
+			end
+  	  	end
+	end
 })
