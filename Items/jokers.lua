@@ -103,12 +103,12 @@ SMODS.Joker({
 	key = "pretzel",
 	atlas = "joke",
 	pos = { x = 2, y = 0 },
-	rarity = 2,
-	cost = 3,
+	rarity = 1,
+	cost = 1,
 	allow_duplicates = true,
 	config = {
 		extra = {
-			odds = 2,
+			odds = 4,
 			odds2 = 4
 		},
 	},
