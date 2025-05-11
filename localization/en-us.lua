@@ -15,6 +15,12 @@ return {
                          "{C:inactive}(Is destroyed after #3# triggers){}"
                 }
             },
+            j_arch_pretzel = {
+                name = 'Pretzel',
+                text = { "{C:green}#1# in #2#{} chance to level {C:attention}Two Pair{} at end of blind,",
+                         "{C:green}#1# in #3#{} chance to be destroyed instead"
+                }
+            },
         },
         Enhanced = {},
         Other={},
