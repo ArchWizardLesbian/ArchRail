@@ -179,11 +179,7 @@ SMODS.Joker({
     perishable_compat = true,
     blueprint_compat = true,
     config = {
-        extra = {
-            Xmult = 0.1, 
-            joker1 = "arch_deadcard",
-            joker2 = "j_blackboard"
-        }
+        extra = {}
     },
     loc_vars = function(self, info_queue, card)
 		local arch = card.ability.extra
@@ -201,3 +197,5 @@ SMODS.Joker({
   	  	end
 	end
 })
+
+FusionJokers.fusions:add_fusion("j_blackboard", nil, false, "j_arch_deadcard", nil, false, "j_arch_todust", 6)

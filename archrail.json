@@ -2,14 +2,14 @@
 	"id": "ArcRa",
 	"name": "ArchRail",
 	"display_name": "ArchRail",
-	"author": ["railgun, Mil0Meg4, Revo, Blazingulag"],
+	"author": ["railgun"],
 	"website_url": "https://github.com/ArchWizardLesbian/ArchRail",
 	"description": "An early access mod",
 	"prefix": "arch",
 	"main_file": "main.lua",
 	"priority": 250,
-	"badge_colour": "880808",
-	"badge_text_colour": "3D3446",
+	"badge_colour": "4F4FED",
+	"badge_text_colour": "EBEB7C",
 	"version": "0.1a",
 	"dependencies": ["Steamodded (>=1.0.0~ALPHA-1428c)","Talisman (>=2.0.0)", "FusionJokers (>=1.0.0~BETA-00502a)"]
 }
