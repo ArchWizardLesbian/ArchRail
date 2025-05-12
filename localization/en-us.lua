@@ -23,13 +23,16 @@ return {
             },
             j_arch_deadcard = {
                 name = 'Faded Memory',
-                text = { "{C:green}Fixed 50%{} chance to retrigger held in hand effects"
+                text = { "{C:green}Fixed 50%{} chance to retrigger",
+                         "{C:attention}held in hand{} effects"
                 }
             },
             j_arch_todust = {
                 name = 'To Dust',
-                text = { "{C:green}Fixed 75%{} chance to retrigger held in hand effects",
-                         "of {C:spades}Spades{} and {C:clubs}Clubs{} twice"
+                text = { "{C:green}Fixed 75%{} chance to retrigger",
+                         "{C:attention}held in hand{} effects of",
+                         "{C:spades}Spades{} and {C:clubs}Clubs{} twice",
+                         "{C:inactive}(Faded Memory + Blackboard){}"
                 }
             },
         },
@@ -41,15 +44,15 @@ return {
         Tag={},
         Tarot={},
         Voucher={},
-       --[[ Partner={
-            pnr_partner_pretzelbuddy={
+        Partner={
+            pnr_arch_pretzelbuddy={
                 name = "Crispy",
                 text = {
                     "{C:green}#1# in #2#{} chance to level {C:attention}Two Pair{}",
                     "at end of blind",
                 },
             },
-        } ]]
+        }
     },
     misc = {
         achievement_descriptions={},

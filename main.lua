@@ -1,8 +1,16 @@
-ANVA = {}
-ANVA.C = {}
+ARCH = {}
+ARCH.C = {}
+
+ARCH.compat = {
+    partners = (SMODS.Mods['partner'] or {}).can_load or false
+}
+
 SMODS.load_file("Items/jokers.lua")()
 SMODS.load_file("Items/shaders.lua")()
---SMODS.load_file("Items/partner.lua")()
+
+if ARCH.compat.partners then
+SMODS.load_file("Items/partner.lua")()
+end
 
 --joker ATLAS
 SMODS.Atlas{
@@ -20,11 +28,12 @@ SMODS.Atlas({
     py = 34
 })
 
---[[Partner Mod atlas
+if ARCH.compat.partners then
+--Partner Mod atlas
 SMODS.Atlas{
     key = "minijoke",
     px = 46,
     py = 58,
     path = "partners.png"
 }
-]]
+end
