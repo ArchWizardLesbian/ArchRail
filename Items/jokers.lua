@@ -20,7 +20,7 @@ SMODS.Joker({
         end
         local loc_mult = ' ' .. (localize('k_mult')) .. ' '
         main_start = {
-			{ n = G.UIT.T, config = { text = ' Scored', colour = G.C.UI.TEXT_DARK, scale = 0.32 } },
+			{ n = G.UIT.T, config = { text = 'Scored', colour = G.C.UI.TEXT_DARK, scale = 0.32 } },
 			{ n = G.UIT.T, config = { text = ' Wild Cards', colour = G.C.FILTER, scale = 0.32 } },
 			{ n = G.UIT.T, config = { text = ' give', colour = G.C.UI.TEXT_DARK, scale = 0.32 } },
             { n = G.UIT.T, config = { text = ' +', colour = G.C.MULT, scale = 0.32 } },
@@ -199,3 +199,24 @@ SMODS.Joker({
 })
 
 FusionJokers.fusions:add_fusion("j_blackboard", nil, false, "j_arch_deadcard", nil, false, "j_arch_todust", 6)
+
+--[[
+SMODS.Joker({
+    key = "prisma",
+    atlas = "joke",
+    pos = { x = 3, y = 1 },
+	soul_pos = { x = 4, y = 1 },
+    rarity = "fuse_fusion",
+    cost = 10,
+    unlocked = true,
+    discovered = false,
+    eternal_compat = true,
+    perishable_compat = true,
+    blueprint_compat = true,
+    config = {
+        extra = {}
+    },
+})
+
+FusionJokers.fusions:add_fusion("j_glass_joker", nil, false, "j_arch_pink_joker", nil, false, "j_arch_prisma", 7)
+]]

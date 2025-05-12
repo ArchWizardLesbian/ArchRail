@@ -35,6 +35,12 @@ return {
                          "{C:inactive}(Faded Memory + Blackboard){}"
                 }
             },
+           --[[ j_arch_prisma = {
+                name = 'Iridescent Joker',
+                text = { "Destroyed {C:attention}Glass Cards{} create a {C:dark_edition}Polychrome{} {C:attention}Wild{} copy",
+                         "{C:inactive}(Party Joker + Glass Joker){}"
+                }
+            },]]
         },
         Enhanced = {},
         Other={},
