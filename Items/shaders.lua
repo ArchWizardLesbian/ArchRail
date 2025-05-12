@@ -1,5 +1,6 @@
 SMODS.Shader({ key = 'corrupted', path = 'corrupted.fs' })
 
+--[[
 SMODS.Edition({
     key = "corrupted",
     loc_txt = {
@@ -35,3 +36,4 @@ SMODS.Edition({
     G.GAME.current_round.reroll_cost = math.max(0, G.GAME.current_round.reroll_cost + self.config.extra.reroll_sale)
   end,
 })
+]]
