@@ -41,6 +41,15 @@ return {
         Tag={},
         Tarot={},
         Voucher={},
+       --[[ Partner={
+            pnr_partner_pretzelbuddy={
+                name = "Crispy",
+                text = {
+                    "{C:green}#1# in #2#{} chance to level {C:attention}Two Pair{}",
+                    "at end of blind",
+                },
+            },
+        } ]]
     },
     misc = {
         achievement_descriptions={},
