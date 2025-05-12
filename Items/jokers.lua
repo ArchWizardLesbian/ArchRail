@@ -114,7 +114,7 @@ SMODS.Joker({
 	},
 	unlocked = true,
 	discovered = false,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	loc_vars = function(self, info_queue, card)
 		local arch = card.ability.extra
 		return {
