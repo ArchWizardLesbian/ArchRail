@@ -2,7 +2,7 @@
 	"id": "ArcRa",
 	"name": "ArchRail",
 	"display_name": "ArchRail",
-	"author": ["railgun"],
+	"author": ["railgun", "eba"],
 	"website_url": "https://github.com/ArchWizardLesbian/ArchRail",
 	"description": "An early access mod",
 	"prefix": "arch",

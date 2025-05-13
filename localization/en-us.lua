@@ -54,7 +54,8 @@ return {
             pnr_arch_pretzelbuddy={
                 name = "Crispy",
                 text = {
-                    "{C:green}#1# in #2#{} chance to level {C:attention}Two Pair{}",
+                    "{C:green}#1# in #2#{} chance to",
+                    "level {C:attention}Two Pair{}",
                     "at end of blind",
                 },
             },
