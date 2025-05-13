@@ -2,6 +2,7 @@
 ![image](https://github.com/user-attachments/assets/9e79212d-1fbe-4fb8-be3c-540398c50e90)
 A Vanilla(ish) Balatro mod!!
 Currently has 5 Jokers, including 1 Fusion Joker, and more to come!
+If the [Partner](https://github.com/Icecanno/Partner-API/tree/main) mod is installed, ArchRail also includes a new Partner, named Crispy!
 
 # Requirements
 - [Steamodded](https://github.com/Steamopollys/Steamodded)
