@@ -67,8 +67,7 @@ SMODS.Joker({
 	cost = 6,
 	config = {
 		extra = {
-			odds = 2,
-			triggersleft = 6
+			triggersleft = 5
 		},
 	},
 	unlocked = true,
@@ -78,12 +77,12 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local arch = card.ability.extra
 		return {
-			vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds, arch.triggersleft },
+			vars = { arch.triggersleft },
 		}
 	end,
 	calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            if pseudorandom('arch_choco') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if G.GAME.blind.boss then
 				add_tag(Tag('tag_double'))
 				play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
                 play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
@@ -106,13 +105,13 @@ SMODS.Joker({
 	key = "pretzel",
 	atlas = "joke",
 	pos = { x = 2, y = 0 },
-	rarity = 2,
+	rarity = 1,
 	cost = 1,
 	allow_duplicates = true,
 	config = {
 		extra = {
-			odds = 3,
-			odds2 = 6
+			odds = 4,
+			odds2 = 4
 		},
 	},
 	unlocked = true,

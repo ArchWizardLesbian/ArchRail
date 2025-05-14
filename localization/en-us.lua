@@ -11,8 +11,8 @@ return {
             },
             j_arch_brown_joker = {
                 name = 'Chocolate Bar',
-                text = { "{C:green}#1# in #2#{} chance to give a {C:attention}Double Tag{} at end of blind",
-                         "{C:inactive}(Is destroyed after {C:attention}#3#{C:inactive} triggers){}"
+                text = { "Get a {C:attention}Double Tag{} at end of boss blind",
+                         "{C:inactive}(Is destroyed after {C:attention}#1#{C:inactive} triggers){}"
                 }
             },
             j_arch_pretzel = {
