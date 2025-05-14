@@ -6,7 +6,7 @@ ARCH.compat = {
 }
 
 SMODS.load_file("Items/jokers.lua")()
---SMODS.load_file("Items/primer.lua")()
+SMODS.load_file("Items/primer.lua")()
 SMODS.load_file("Items/shaders.lua")()
 
 if ARCH.compat.partners then

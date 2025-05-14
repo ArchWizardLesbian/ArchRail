@@ -2,12 +2,12 @@ SMODS.Joker({
 	key = "pink_joker",
 	atlas = "joke",
 	pos = { x = 0, y = 0 },
-	rarity = 2,
+	rarity = 1,
 	cost = 4,
 	config = {
 		extra = {
-			max = 36,
-			min = 0
+			max = 21,
+			min = 1
 		},
 	},
 	unlocked = true,

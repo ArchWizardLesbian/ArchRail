@@ -53,6 +53,18 @@ return {
             },
             j_arch_ametr = {
                 name = 'Ametrine',
+                text = { "{C:mult}+#1#{} Mult",
+                         "{C:spectral,E:1}Fusion Material{}"
+                }
+            },
+            j_arch_sapphire = {
+                name = 'Sapphire',
+                text = { "{C:chips}+#1#{} Chips",
+                         "{C:spectral,E:1}Fusion Material{}"
+                }
+            },
+            j_arch_citrine = {
+                name = 'Citrine',
                 text = { "Earn {C:money}+$#1#{} at end of blind",
                          "{C:spectral,E:1}Fusion Material{}"
                 }
@@ -83,7 +95,9 @@ return {
         blind_states={},
         challenge_names={},
         collabs={},
-        dictionary={},
+        dictionary={
+            k_arch_primer= "Primer",
+        },
         high_scores={},
         labels={
             arch_primer= "Primer",
