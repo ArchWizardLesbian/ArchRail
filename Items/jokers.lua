@@ -236,7 +236,7 @@ SMODS.Joker({
 				end
             end
         end
-		enhance_tally = math.floor((math.min(enhance_tally,enhance_tally2))/arch.selectionUp)
+		enhance_tally = math.floor((math.min(enhance_tally,enhance_tally2))/arch.enhancementReq)
 		return {
 			vars = { arch.selectionUp, arch.enhancementReq, (enhance_tally or 0) },
 		}
@@ -254,9 +254,9 @@ SMODS.Joker({
 				end
 			end
 		end
-		enhance_tally = math.floor((math.min(enhance_tally,enhance_tally2))/arch.selectionUp)
+		enhance_tally = math.floor((math.min(enhance_tally,enhance_tally2))/arch.enhancementReq)
 		if G.hand then
-			G.hand.config.highlighted_limit = 5 + enhance_tally
+			G.hand.config.highlighted_limit = 5 + (enhance_tally*arch.selectionUp)
 		end
 	end
 })
