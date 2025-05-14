@@ -17,8 +17,8 @@ return {
             },
             j_arch_pretzel = {
                 name = 'Pretzel',
-                text = { "{C:green}#1# in #2#{} chance to be destroyed at end of blind,",
-                         "otherwise, levels {C:attention}Two Pair{}"
+                text = { "{C:green}#1# in #2#{} chance to be destroyed at",
+                         "end of blind, otherwise, levels {C:attention}Two Pair{}"
                 }
             },
             j_arch_deadcard = {

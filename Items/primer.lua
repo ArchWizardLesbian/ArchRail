@@ -4,7 +4,7 @@ SMODS.Rarity({
 	pools = {
 		["Joker"] = true,
 	},
-	default_weight = 0.1
+	default_weight = 0.05
 })
 
 SMODS.Joker({
