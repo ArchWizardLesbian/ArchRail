@@ -203,7 +203,7 @@ SMODS.Joker({
 	end
 })
 
-
+--[[
 FusionJokers.fusions:add_fusion("j_glass_joker", nil, false, "j_arch_pink_joker", nil, false, "j_arch_prisma", 7)
 SMODS.Joker({
     key = "prisma",
@@ -221,7 +221,8 @@ SMODS.Joker({
         extra = {
 			selectionUp = 1,
 			enhancementReq = 2,
-			prev_tally = 0
+			prev_tally = 0,
+			selection_increase = 0
 		}
     },
 	loc_vars = function (self, info_queue, card)
@@ -239,7 +240,7 @@ SMODS.Joker({
         end
 		enhance_tally = math.floor((math.min(enhance_tally,enhance_tally2))/arch.enhancementReq)
 		return {
-			vars = { arch.selectionUp, arch.enhancementReq, (enhance_tally or 0) },
+			vars = { arch.selectionUp, arch.enhancementReq, arch.selection_increase },
 		}
 	end,
 	update = function(self, card, context)
@@ -259,9 +260,72 @@ SMODS.Joker({
 		if enhance_tally ~= arch.prev_tally then
 			if G.hand then
 				local tally_to_selection = enhance_tally - arch.prev_tally
-				G.hand.config.highlighted_limit = G.hand.config.highlighted_limit + (tally_to_selection*arch.selectionUp)
+				arch.selection_increase = (tally_to_selection*arch.selectionUp)
+				G.hand.config.highlighted_limit = G.hand.config.highlighted_limit + arch.selection_increase
 				arch.prev_tally = arch.prev_tally + tally_to_selection
 			end
 		end
+	end,
+	remove_from_deck = function(self, card, context)
+		local arch = card.ability.extra
+		if G.hand then
+			G.hand.config.highlighted_limit = G.hand.config.highlighted_limit - arch.selection_increase
+		end
 	end
 })
+
+
+FusionJokers.fusions:add_fusion("j_oops", nil, false, "j_arch_pink_joker", nil, false, "j_arch_gamblecore", 8)
+SMODS.Joker({
+    key = "gamblecore",
+    atlas = "joke",
+    pos = { x = 1, y = 1 },
+    rarity = "fuse_fusion",
+    cost = 10,
+    unlocked = true,
+    discovered = false,
+    eternal_compat = true,
+    perishable_compat = true,
+    blueprint_compat = true,
+    config = {
+        extra = {
+			chanceUp = 1,
+			enhancementReq = 3,
+			prev_tally = 0,
+			odds_increase = 0
+		}
+    },
+	loc_vars = function (self, info_queue, card)
+		local arch = card.ability.extra
+		return {
+			vars = { arch.chanceUp, arch.enhancementReq, arch.odds_increase },
+		}
+	end,
+	update = function(self, card, context)
+		local arch = card.ability.extra
+		local enhance_tally = 0
+		if G.playing_cards then
+			for _, playing_card in ipairs(G.playing_cards) do
+				if playing_card.ability.effect == "Wild Card" then
+					enhance_tally = enhance_tally + 1
+				end
+			end
+		end
+		enhance_tally = math.floor((enhance_tally)/arch.enhancementReq)
+		if enhance_tally ~= arch.prev_tally then
+			local tally_to_odds = enhance_tally - arch.prev_tally
+			arch.odds_increase = (tally_to_odds*arch.chanceUp)
+			for k, v in pairs(G.GAME.probabilities) do
+            	G.GAME.probabilities[k] = v + arch.odds_increase
+        	end
+			arch.prev_tally = arch.prev_tally + tally_to_odds
+		end
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		local arch = card.ability.extra
+		for k, v in pairs(G.GAME.probabilities) do
+         	G.GAME.probabilities[k] = v - arch.odds_increase
+     	end
+	end
+})
+]]

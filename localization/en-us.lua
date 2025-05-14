@@ -43,6 +43,14 @@ return {
                          "{C:inactive}(Party Joker + Glass Joker){}"
                 }
             },
+            j_arch_gamblecore = {
+                name = 'GamblerTempName',
+                text = { "{C:green}+#1# Odds{} per {C:attention}#2# Wild Cards{}",
+                         "in {C:attention}full deck{}",
+                         "{C:inactive}(Currently {C:attention}+#3#{}{C:inactive} Odds){}",
+                         "{C:inactive}(Party Joker + Oops! All Sixes){}"
+                }
+            },
         },
         Enhanced = {},
         Other={},
