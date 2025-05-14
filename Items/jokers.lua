@@ -74,6 +74,7 @@ SMODS.Joker({
 	unlocked = true,
 	discovered = false,
 	blueprint_compat = false,
+	eternal_compat = false,
 	loc_vars = function(self, info_queue, card)
 		local arch = card.ability.extra
 		return {
@@ -117,6 +118,7 @@ SMODS.Joker({
 	unlocked = true,
 	discovered = false,
 	blueprint_compat = false,
+	eternal_compat = false,
 	loc_vars = function(self, info_queue, card)
 		local arch = card.ability.extra
 		return {
@@ -214,8 +216,8 @@ SMODS.Joker({
     cost = 10,
     unlocked = true,
     discovered = false,
-    eternal_compat = true,
-    perishable_compat = true,
+    eternal_compat = false,
+    perishable_compat = false,
     blueprint_compat = true,
     config = {
         extra = {
@@ -284,8 +286,8 @@ SMODS.Joker({
     cost = 10,
     unlocked = true,
     discovered = false,
-    eternal_compat = true,
-    perishable_compat = true,
+    eternal_compat = false,
+    perishable_compat = false,
     blueprint_compat = true,
     config = {
         extra = {

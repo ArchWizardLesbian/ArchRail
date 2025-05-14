@@ -6,6 +6,7 @@ ARCH.compat = {
 }
 
 SMODS.load_file("Items/jokers.lua")()
+--SMODS.load_file("Items/primer.lua")()
 SMODS.load_file("Items/shaders.lua")()
 
 if ARCH.compat.partners then
@@ -16,6 +17,14 @@ end
 SMODS.Atlas{
     key = "joke",
     path = "joker.png",
+    px = 71,
+    py = 95
+}
+
+--primer joker ATLAS
+SMODS.Atlas{
+    key = "prim",
+    path = "primers.png",
     px = 71,
     py = 95
 }

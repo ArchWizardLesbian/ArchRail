@@ -51,6 +51,12 @@ return {
                          "{C:inactive}(Party Joker + Oops! All Sixes){}"
                 }
             },
+            j_arch_ametr = {
+                name = 'Ametrine',
+                text = { "Earn {C:money}+$#1#{} at end of blind",
+                         "{C:spectral,E:1}Fusion Material{}"
+                }
+            },
         },
         Enhanced = {},
         Other={},
@@ -79,7 +85,9 @@ return {
         collabs={},
         dictionary={},
         high_scores={},
-        labels={},
+        labels={
+            arch_primer= "Primer",
+        },
         poker_hand_descriptions={},
         poker_hands={},
         quips={},
