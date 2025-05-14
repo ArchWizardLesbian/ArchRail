@@ -110,8 +110,7 @@ SMODS.Joker({
 	allow_duplicates = true,
 	config = {
 		extra = {
-			odds = 4,
-			odds2 = 4
+			odds = 8
 		},
 	},
 	unlocked = true,
@@ -121,12 +120,16 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local arch = card.ability.extra
 		return {
-			vars = { (G.GAME and G.GAME.probabilities.normal or 1), arch.odds, arch.odds2 },
+			vars = { (G.GAME and G.GAME.probabilities.normal or 1), arch.odds },
 		}
 	end,
 	calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
             if pseudorandom('arch_pretz') < G.GAME.probabilities.normal / card.ability.extra.odds then
+				card:remove()
+				card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Ate!', colour = G.C.MULT })
+				card = nil
+			else
 				play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
 				card.T.r = -0.2
                 card:juice_up(0.3, 0.4)
@@ -135,10 +138,6 @@ SMODS.Joker({
 					level_up = true,
   					level_up_hand = "Two Pair"
 				}
-			elseif pseudorandom('arch_pretz_second') < G.GAME.probabilities.normal / card.ability.extra.odds2 then
-				card:remove()
-				card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Ate!', colour = G.C.MULT })
-				card = nil
 			end
 		end
 	end
