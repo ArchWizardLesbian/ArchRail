@@ -208,8 +208,8 @@ FusionJokers.fusions:add_fusion("j_glass_joker", nil, false, "j_arch_pink_joker"
 SMODS.Joker({
     key = "prisma",
     atlas = "joke",
-    pos = { x = 3, y = 1 },
-	soul_pos = { x = 4, y = 1 },
+    pos = { x = 2, y = 1 },
+	soul_pos = { x = 3, y = 1 },
     rarity = "fuse_fusion",
     cost = 10,
     unlocked = true,
@@ -220,7 +220,8 @@ SMODS.Joker({
     config = {
         extra = {
 			selectionUp = 1,
-			enhancementReq = 2
+			enhancementReq = 2,
+			prev_tally = 0
 		}
     },
 	loc_vars = function (self, info_queue, card)
@@ -255,8 +256,12 @@ SMODS.Joker({
 			end
 		end
 		enhance_tally = math.floor((math.min(enhance_tally,enhance_tally2))/arch.enhancementReq)
-		if G.hand then
-			G.hand.config.highlighted_limit = 5 + (enhance_tally*arch.selectionUp)
+		if enhance_tally ~= arch.prev_tally then
+			if G.hand then
+				local tally_to_selection = enhance_tally - arch.prev_tally
+				G.hand.config.highlighted_limit = G.hand.config.highlighted_limit + (tally_to_selection*arch.selectionUp)
+				arch.prev_tally = arch.prev_tally + enhance_tally
+			end
 		end
 	end
 })
