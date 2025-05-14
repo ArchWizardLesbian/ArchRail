@@ -260,7 +260,7 @@ SMODS.Joker({
 			if G.hand then
 				local tally_to_selection = enhance_tally - arch.prev_tally
 				G.hand.config.highlighted_limit = G.hand.config.highlighted_limit + (tally_to_selection*arch.selectionUp)
-				arch.prev_tally = arch.prev_tally + enhance_tally
+				arch.prev_tally = arch.prev_tally + tally_to_selection
 			end
 		end
 	end
