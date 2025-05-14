@@ -51,6 +51,14 @@ return {
                          "{C:inactive}(Party Joker + Oops! All Sixes){}"
                 }
             },
+            j_arch_pyromancer = {
+                name = "Pyromancer",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult per {C:purple}Tarot{}",
+                    "card used this run",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive})",
+                },
+            },
             j_arch_ametr = {
                 name = 'Ametrine',
                 text = { "{C:mult}+#1#{} Mult",

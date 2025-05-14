@@ -149,8 +149,7 @@ SMODS.Joker({
 	atlas = "joke",
 	pos = { x = 3, y = 0 },
 	rarity = 1,
-	cost = 3,
-	allow_duplicates = true,
+	cost = 4,
 	config = {},
 	unlocked = true,
 	discovered = false,
@@ -329,3 +328,34 @@ SMODS.Joker({
 	end
 })
 ]]
+
+FusionJokers.fusions:add_fusion("j_fortune_teller", nil, false, "j_arch_ametr", nil, false, "j_arch_pyromancer", 8)
+SMODS.Joker({
+    key = "pyromancer",
+    atlas = "joke",
+    pos = { x = 0, y = 1 },
+    rarity = "fuse_fusion",
+    cost = 10,
+    unlocked = true,
+    discovered = false,
+    eternal_compat = false,
+    perishable_compat = false,
+    blueprint_compat = true,
+    config = { extra = { xmult = 0.25 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, 1+(card.ability.extra.xmult * (G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.tarot or 0)) } }
+    end,
+    calculate = function(self, card, context)
+        if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == "Tarot" then
+            return {
+                message = localize { type = 'variable', key = 'a_mult', vars = { G.GAME.consumeable_usage_total.tarot } },
+            }
+        end
+        if context.joker_main then
+            return {
+                xmult = 1 + (card.ability.extra.xmult *
+                    (G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.tarot or 0))
+            }
+        end
+    end,
+})
