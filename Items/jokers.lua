@@ -58,6 +58,7 @@ SMODS.Joker({
 	end,
 })
 
+
 SMODS.Joker({
 	key = "brown_joker",
 	atlas = "joke",
@@ -98,6 +99,7 @@ SMODS.Joker({
 		end
     end
 })
+
 
 SMODS.Joker({
 	key = "pretzel",
@@ -141,6 +143,7 @@ SMODS.Joker({
 	end
 })
 
+
 SMODS.Joker({
 	key = "deadcard",
 	atlas = "joke",
@@ -167,6 +170,8 @@ SMODS.Joker({
     end
 })
 
+
+FusionJokers.fusions:add_fusion("j_blackboard", nil, false, "j_arch_deadcard", nil, false, "j_arch_todust", 6)
 SMODS.Joker({
     key = "todust",
     atlas = "joke",
@@ -198,9 +203,8 @@ SMODS.Joker({
 	end
 })
 
-FusionJokers.fusions:add_fusion("j_blackboard", nil, false, "j_arch_deadcard", nil, false, "j_arch_todust", 6)
 
---[[
+FusionJokers.fusions:add_fusion("j_glass_joker", nil, false, "j_arch_pink_joker", nil, false, "j_arch_prisma", 7)
 SMODS.Joker({
     key = "prisma",
     atlas = "joke",
@@ -214,9 +218,45 @@ SMODS.Joker({
     perishable_compat = true,
     blueprint_compat = true,
     config = {
-        extra = {}
+        extra = {
+			selectionUp = 1,
+			enhancementReq = 2
+		}
     },
+	loc_vars = function (self, info_queue, card)
+		local arch = card.ability.extra
+		local enhance_tally = 0
+		local enhance_tally2 = 0
+        if G.playing_cards then
+            for _, playing_card in ipairs(G.playing_cards) do
+                if playing_card.ability.effect == "Wild Card" then
+					enhance_tally = enhance_tally + 1
+				elseif playing_card.ability.effect == "Glass Card" then
+					enhance_tally2 = enhance_tally2 + 1
+				end
+            end
+        end
+		enhance_tally = math.floor((math.min(enhance_tally,enhance_tally2))/arch.selectionUp)
+		return {
+			vars = { arch.selectionUp, arch.enhancementReq, (enhance_tally or 0) },
+		}
+	end,
+	update = function(self, card, context)
+		local arch = card.ability.extra
+		local enhance_tally = 0
+		local enhance_tally2 = 0
+		if G.playing_cards then
+			for _, playing_card in ipairs(G.playing_cards) do
+				if playing_card.ability.effect == "Wild Card" then
+					enhance_tally = enhance_tally + 1
+				elseif playing_card.ability.effect == "Glass Card" then
+					enhance_tally2 = enhance_tally2 + 1
+				end
+			end
+		end
+		enhance_tally = math.floor((math.min(enhance_tally,enhance_tally2))/arch.selectionUp)
+		if G.hand then
+			G.hand.config.highlighted_limit = 5 + enhance_tally
+		end
+	end
 })
-
-FusionJokers.fusions:add_fusion("j_glass_joker", nil, false, "j_arch_pink_joker", nil, false, "j_arch_prisma", 7)
-]]
