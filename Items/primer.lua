@@ -4,7 +4,7 @@ SMODS.Rarity({
 	pools = {
 		["Joker"] = true,
 	},
-	default_weight = 0.01
+	default_weight = 0.005
 })
 
 SMODS.Joker({
@@ -80,7 +80,7 @@ SMODS.Joker({
         return card.ability.extra.dollars
     end
 })
-
+--[[
 FusionJokers.fusions:add_fusion("j_arch_citrine", nil, false, "j_arch_sapphire", nil, false, "j_arch_moonst", 2)
 SMODS.Joker({
 	key = "moonst",
@@ -194,3 +194,4 @@ SMODS.Joker({
         return false
     end
 })
+]]
