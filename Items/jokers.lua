@@ -456,3 +456,95 @@ SMODS.Joker {
     end,
 }
 ]]
+
+
+FusionJokers.fusions:add_fusion("j_greedy_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_charitous_joker", 2)
+SMODS.Joker {
+    key = "charitous_joker",
+	atlas = "joke",
+    pos = { x = 5, y = 0 },
+    rarity = "fuse_fusion",
+    blueprint_compat = true,
+    cost = 5,
+    config = { extra = { chips = 70 }, },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and
+            context.other_card:is_suit("Diamonds") then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end
+}
+
+
+FusionJokers.fusions:add_fusion("j_lusty_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_chaste_joker", 3)
+SMODS.Joker {
+    key = "chaste_joker",
+	atlas = "joke",
+    pos = { x = 5, y = 1 },
+    rarity = "fuse_fusion",
+    blueprint_compat = true,
+    cost = 5,
+    config = { extra = { chips = 70 }, },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and
+            context.other_card:is_suit("Hearts") then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end
+}
+
+
+FusionJokers.fusions:add_fusion("j_wrathful_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_patient_joker", 3)
+SMODS.Joker {
+    key = "patient_joker",
+	atlas = "joke",
+    pos = { x = 5, y = 2 },
+    rarity = "fuse_fusion",
+    blueprint_compat = true,
+    cost = 5,
+    config = { extra = { chips = 70 }, },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and
+            context.other_card:is_suit("Spades") then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end
+}
+
+
+FusionJokers.fusions:add_fusion("j_gluttonous_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_temperate_joker", 3)
+SMODS.Joker {
+    key = "temperate_joker",
+	atlas = "joke",
+    pos = { x = 5, y = 3 },
+    rarity = "fuse_fusion",
+    blueprint_compat = true,
+    cost = 5,
+    config = { extra = { chips = 70 }, },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and
+            context.other_card:is_suit("Clubs") then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end
+}

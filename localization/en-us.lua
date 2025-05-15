@@ -79,6 +79,38 @@ return {
                     "{C:inactive}(Citrine + Photograph){}"
                 },
             },
+            j_arch_charitous_joker = {
+                name = "Charitous Joker",
+                text = {
+                    "Each {C:diamonds}Diamonds{}",
+                    "held in hand",
+                    "gives {C:chips}+#1#{} Chips",
+                },
+            },
+            j_arch_chaste_joker = {
+                name = "Chaste Joker",
+                text = {
+                    "Each {C:hearts}Hearts{}",
+                    "held in hand",
+                    "gives {C:chips}+#1#{} Chips",
+                },
+            },
+            j_arch_patient_joker = {
+                name = "Patient Joker",
+                text = {
+                    "Each {C:spades}Spades{}",
+                    "held in hand",
+                    "gives {C:chips}+#1#{} Chips",
+                },
+            },
+            j_arch_temperate_joker = {
+                name = "Temperate Joker",
+                text = {
+                    "Each {C:clubs}Clubs{}",
+                    "held in hand",
+                    "gives {C:chips}+#1#{} Chips",
+                },
+            },
             j_arch_minotaur = {
                 name = "Minotaur",
                 text = {
