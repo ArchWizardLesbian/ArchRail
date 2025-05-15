@@ -12,7 +12,7 @@ SMODS.Joker({
 	atlas = "prim",
 	pos = { x = 0, y = 0 },
 	rarity = "arch_primer",
-	cost = 2,
+	cost = 6,
 	allow_duplicates = true,
 	unlocked = true,
 	discovered = false,
@@ -38,7 +38,7 @@ SMODS.Joker({
 	atlas = "prim",
 	pos = { x = 1, y = 0 },
 	rarity = "arch_primer",
-	cost = 2,
+	cost = 6,
 	allow_duplicates = true,
 	unlocked = true,
 	discovered = false,
@@ -64,7 +64,7 @@ SMODS.Joker({
 	atlas = "prim",
 	pos = { x = 2, y = 0 },
 	rarity = "arch_primer",
-	cost = 2,
+	cost = 6,
 	allow_duplicates = true,
 	unlocked = true,
 	discovered = false,
@@ -80,14 +80,13 @@ SMODS.Joker({
         return card.ability.extra.dollars
     end
 })
---[[
-FusionJokers.fusions:add_fusion("j_arch_citrine", nil, false, "j_arch_sapphire", nil, false, "j_arch_moonst", 2)
+
 SMODS.Joker({
 	key = "moonst",
 	atlas = "prim",
 	pos = { x = 0, y = 1 },
 	rarity = "arch_primer",
-	cost = 4,
+	cost = 7,
 	allow_duplicates = true,
 	unlocked = true,
 	discovered = false,
@@ -113,13 +112,12 @@ SMODS.Joker({
     end
 })
 
-FusionJokers.fusions:add_fusion("j_arch_citrine", nil, false, "j_arch_ametr", nil, false, "j_arch_quartz", 2)
 SMODS.Joker({
 	key = "quartz",
 	atlas = "prim",
 	pos = { x = 1, y = 1 },
 	rarity = "arch_primer",
-	cost = 4,
+	cost = 7,
 	allow_duplicates = true,
 	unlocked = true,
 	discovered = false,
@@ -149,7 +147,7 @@ SMODS.Joker({
 	atlas = "prim",
 	pos = { x = 2, y = 1 },
 	rarity = "arch_primer",
-	cost = 4,
+	cost = 7,
 	allow_duplicates = true,
 	unlocked = true,
 	discovered = false,
@@ -194,4 +192,57 @@ SMODS.Joker({
         return false
     end
 })
+
+--[[
+SMODS.Joker({
+	key = "???",
+	atlas = "prim",
+	pos = { x = 1, y = 0 },
+	rarity = "arch_primer",
+	cost = 9,
+	allow_duplicates = true,
+	unlocked = true,
+	discovered = false,
+	blueprint_compat = false,
+	eternal_compat = false,
+	perishable_compat = false,
+    config = { extra = { chips = 30 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips } }
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end
+})
 ]]
+
+SMODS.Joker({
+	key = "cobalt",
+	atlas = "prim",
+	pos = { x = 1, y = 2 },
+	rarity = "arch_primer",
+	cost = 9,
+	allow_duplicates = true,
+	unlocked = true,
+	discovered = false,
+	blueprint_compat = false,
+	eternal_compat = false,
+	perishable_compat = false,
+    config = { extra = { retriggers = 1, odds = 3 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { G.GAME and G.GAME.probabilities.normal or 1, card.ability.extra.odds, card.ability.extra.retriggers } }
+    end,
+
+    calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.play and pseudorandom('arch_cobalt') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            return {
+                repetitions = card.ability.extra.retriggers
+            }
+        end
+    end
+})

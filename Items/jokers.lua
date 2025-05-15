@@ -329,6 +329,7 @@ SMODS.Joker({
 })
 ]]
 
+
 FusionJokers.fusions:add_fusion("j_fortune_teller", nil, false, "j_arch_ametr", nil, false, "j_arch_pyromancer", 8)
 SMODS.Joker({
     key = "pyromancer",
@@ -348,7 +349,7 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == "Tarot" then
             return {
-                message = localize { type = 'variable', key = 'a_mult', vars = { G.GAME.consumeable_usage_total.tarot } },
+                message = localize { type = 'variable', key = 'x_mult', vars = { 1+(card.ability.extra.xmult * (G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.tarot or 0)) } },
             }
         end
         if context.joker_main then
@@ -360,7 +361,8 @@ SMODS.Joker({
     end,
 })
 
-FusionJokers.fusions:add_fusion("j_joker_stencil", nil, false, "j_arch_sapphire", nil, false, "j_arch_inked", 10)
+
+FusionJokers.fusions:add_fusion("j_joker_stencil", nil, false, "j_arch_obsid", nil, false, "j_arch_inked", 10)
 SMODS.Joker({
     key = "inked",
     atlas = "joke",
@@ -390,3 +392,67 @@ SMODS.Joker({
         end
     end,
 })
+
+--[[
+FusionJokers.fusions:add_fusion("j_photograph", nil, false, "j_arch_citrine", nil, false, "j_arch_model", 8)
+SMODS.Joker({
+    key = "model",
+	atlas = "joke",
+    blueprint_compat = true,
+    rarity = "fuse_fusion",
+    cost = 8,
+    pos = { x = 0, y = 2 },
+    pixel_size = { h = 95 / 1.2 },
+    config = { extra = { dollars = 6 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.dollars } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:is_face() then
+            local is_first_face = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i]:is_face() then
+                    is_first_face = context.scoring_hand[i] == context.other_card
+                    break
+                end
+            end
+            if is_first_face then
+                G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.dollars
+            	return {
+            	    dollars = card.ability.extra.dollars,
+            	    func = function() -- This is for timing purposes, this goes after the dollar modification
+            	        G.E_MANAGER:add_event(Event({
+            	            func = function()
+            	            	G.GAME.dollar_buffer = 0
+             	            	return true
+                       		end
+                    	}))
+                	end
+            	}
+            end
+        end
+    end
+})
+
+
+FusionJokers.fusions:add_fusion("j_bull", nil, false, "j_arch_cobalt", nil, false, "j_arch_minotaur", 12)
+SMODS.Joker {
+    key = "minotaur",
+	atlas = "joke",
+    blueprint_compat = true,
+    rarity = "fuse_fusion",
+    cost = 12,
+    pos = { x = 1, y = 2 },
+    config = { extra = { chips = 2 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips * math.max(0, (G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            return {
+                chips = to_number(card.ability.extra.chips * math.max(0, (G.GAME.dollars + (G.GAME.dollar_buffer or 0))))
+            }
+        end
+    end,
+}
+]]

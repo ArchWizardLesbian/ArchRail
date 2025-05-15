@@ -67,7 +67,27 @@ return {
                     "each {C:attention}Joker{} slot when",
                     "a {C:purple}Tarot{} card is used",
                     "{C:inactive}(Currently {X:red,C:white} X#1# {C:inactive})",
-                    "{C:inactive}(Sapphire + Joker Stencil){}"
+                    "{C:inactive}(Obsidian + Joker Stencil){}"
+                },
+            },
+            j_arch_model = {
+                name = "Photoshoot",
+                text = {
+                    "First played {C:attention}face",
+                    "card earns {C:money}$#1#{}",
+                    "when scored",
+                    "{C:inactive}(Citrine + Photograph){}"
+                },
+            },
+            j_arch_minotaur = {
+                name = "Minotaur",
+                text = {
+                    "Each played card",
+                    "gives {C:chips}+#1#{} Chips for",
+                    "each {C:money}$1{} you have",
+                    "when scored",
+                    "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
+                    "{C:inactive}(Cobalt + Bull){}"
                 },
             },
             j_arch_ametr = {
@@ -104,6 +124,7 @@ return {
                     "empty {C:attention}Joker{} slot",
                     "{s:0.8}Quartz included",
                     "{C:inactive}(Currently {X:red,C:white} X#1# {C:inactive})",
+                    "{C:spectral,E:1}Fusion Material{}"
                 },
             },
             j_arch_obsid = {
@@ -113,6 +134,15 @@ return {
                     "create a {C:tarot}Tarot{} card",
                     "when {C:attention}Blind{} is selected",
                     "{C:inactive}(Must have room)",
+                    "{C:spectral,E:1}Fusion Material{}"
+                },
+            },
+            j_arch_cobalt = {
+                name = "Cobalt",
+                text = {
+                    "Each played card has a {C:green}#1# in #2#{}",
+                    "chance to be {C:attention}retriggered{} #3# time",
+                    "{C:spectral,E:1}Fusion Material{}"
                 },
             },
         },

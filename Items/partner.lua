@@ -6,7 +6,7 @@ Partner_API.Partner{
     pos = {x = 0, y = 0},
     loc_txt = {},
     atlas = "minijoke",
-    config = {extra = {related_card = "j_arch_pretzel", odds = 5}},
+    config = {extra = {related_card = "j_arch_pretzel", odds = 2}},
     loc_vars = function(self, info_queue, card)
         arch = card.ability.extra
         return { vars = {(G.GAME and G.GAME.probabilities.normal or 1), arch.odds} }

@@ -46,3 +46,7 @@ SMODS.Atlas{
     path = "partners.png"
 }
 end
+
+to_big = to_big or function(num)
+    return num
+end
