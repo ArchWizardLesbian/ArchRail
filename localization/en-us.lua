@@ -77,6 +77,33 @@ return {
                          "{C:spectral,E:1}Fusion Material{}"
                 }
             },
+            j_arch_moonst = {
+                name = "Moonstone",
+                text = {
+                    "{C:green}#1# in #2#{} chance to",
+                    "upgrade level of",
+                    "played {C:attention}poker hand{}",
+                    "{C:spectral,E:1}Fusion Material{}"
+                },
+            },
+            j_arch_quartz = {
+                name = "Quartz",
+                text = {
+                    "{X:red,C:white}X0.5{} Mult for each",
+                    "empty {C:attention}Joker{} slot",
+                    "{s:0.8}Quartz included",
+                    "{C:inactive}(Currently {X:red,C:white} X#1# {C:inactive})",
+                },
+            },
+            j_arch_obsid = {
+                name = "Obsidian",
+                text = {
+                    "{C:green}#1# in #2#{} chance to",
+                    "create a {C:tarot}Tarot{} card",
+                    "when {C:attention}Blind{} is selected",
+                    "{C:inactive}(Must have room)",
+                },
+            },
         },
         Enhanced = {},
         Other={},

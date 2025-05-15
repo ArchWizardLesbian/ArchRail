@@ -202,7 +202,7 @@ SMODS.Joker({
 	end
 })
 
---[[
+
 FusionJokers.fusions:add_fusion("j_glass_joker", nil, false, "j_arch_pink_joker", nil, false, "j_arch_prisma", 7)
 SMODS.Joker({
     key = "prisma",
@@ -259,7 +259,7 @@ SMODS.Joker({
 		if enhance_tally ~= arch.prev_tally then
 			if G.hand then
 				local tally_to_selection = enhance_tally - arch.prev_tally
-				arch.selection_increase = (tally_to_selection*arch.selectionUp)
+				arch.selection_increase = (enhance_tally*arch.selectionUp)
 				G.hand.config.highlighted_limit = G.hand.config.highlighted_limit + arch.selection_increase
 				arch.prev_tally = arch.prev_tally + tally_to_selection
 			end
@@ -313,7 +313,7 @@ SMODS.Joker({
 		enhance_tally = math.floor((enhance_tally)/arch.enhancementReq)
 		if enhance_tally ~= arch.prev_tally then
 			local tally_to_odds = enhance_tally - arch.prev_tally
-			arch.odds_increase = (tally_to_odds*arch.chanceUp)
+			arch.odds_increase = (enhance_tally*arch.chanceUp)
 			for k, v in pairs(G.GAME.probabilities) do
             	G.GAME.probabilities[k] = v + arch.odds_increase
         	end
@@ -327,7 +327,7 @@ SMODS.Joker({
      	end
 	end
 })
-]]
+
 
 FusionJokers.fusions:add_fusion("j_fortune_teller", nil, false, "j_arch_ametr", nil, false, "j_arch_pyromancer", 8)
 SMODS.Joker({
