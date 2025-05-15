@@ -57,6 +57,7 @@ return {
                     "{X:mult,C:white}X#1#{} Mult per {C:purple}Tarot{}",
                     "card used this run",
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive})",
+                    "{C:inactive}(Ametrine + Fortune Teller){}"
                 },
             },
             j_arch_inked = {
@@ -66,6 +67,7 @@ return {
                     "each {C:attention}Joker{} slot when",
                     "a {C:purple}Tarot{} card is used",
                     "{C:inactive}(Currently {X:red,C:white} X#1# {C:inactive})",
+                    "{C:inactive}(Sapphire + Joker Stencil){}"
                 },
             },
             j_arch_ametr = {
