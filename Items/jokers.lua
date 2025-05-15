@@ -380,9 +380,7 @@ SMODS.Joker({
         if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == "Tarot" then
             local arch = card.ability.extra
 			arch.xmult = arch.xmult + (G.jokers.config.card_limit*0.04)
-			return {
-                message = localize { type = 'variable', key = 'x_mult', vars = { card.ability.extra.xmult } },
-            }
+			card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Inked!', colour = G.C.MULT })
         end
         if context.joker_main then
             local arch = card.ability.extra
