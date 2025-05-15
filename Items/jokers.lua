@@ -359,3 +359,36 @@ SMODS.Joker({
         end
     end,
 })
+
+FusionJokers.fusions:add_fusion("j_joker_stencil", nil, false, "j_arch_obsid", nil, false, "j_arch_inked", 10)
+SMODS.Joker({
+    key = "inked",
+    atlas = "joke",
+    pos = { x = 4, y = 1 },
+    rarity = "fuse_fusion",
+    cost = 10,
+    unlocked = true,
+    discovered = false,
+    eternal_compat = false,
+    perishable_compat = false,
+    blueprint_compat = true,
+    config = { extra = { xmult = 1 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult } }
+    end,
+    calculate = function(self, card, context)
+        if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == "Tarot" then
+            local arch = card.ability.extra
+			arch.xmult = arch.xmult + (G.jokers.config.card_limit*0.04)
+			return {
+                message = localize { type = 'variable', key = 'a_mult', vars = { G.GAME.consumeable_usage_total.tarot } },
+            }
+        end
+        if context.joker_main then
+            local arch = card.ability.extra
+			return {
+                xmult = arch.xmult
+            }
+        end
+    end,
+})

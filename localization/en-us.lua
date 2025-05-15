@@ -59,6 +59,15 @@ return {
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive})",
                 },
             },
+            j_arch_inked = {
+                name = "Inked Joker",
+                text = {
+                    "Gains {X:red,C:white}X0.04{} Mult for",
+                    "each {C:attention}Joker{} slot when",
+                    "a {C:purple}Tarot{} card is used",
+                    "{C:inactive}(Currently {X:red,C:white} X#1# {C:inactive})",
+                },
+            },
             j_arch_ametr = {
                 name = 'Ametrine',
                 text = { "{C:mult}+#1#{} Mult",
