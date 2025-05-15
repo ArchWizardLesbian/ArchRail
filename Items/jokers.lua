@@ -381,7 +381,7 @@ SMODS.Joker({
             local arch = card.ability.extra
 			arch.xmult = arch.xmult + (G.jokers.config.card_limit*0.04)
 			return {
-                message = localize { type = 'variable', key = 'a_mult', vars = { G.GAME.consumeable_usage_total.tarot } },
+                message = localize { type = 'variable', key = 'x_mult', vars = { card.ability.extra.xmult } },
             }
         end
         if context.joker_main then
