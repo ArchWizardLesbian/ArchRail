@@ -141,7 +141,6 @@ SMODS.Joker({
     end
 })
 
-FusionJokers.fusions:add_fusion("j_arch_sapphire", nil, false, "j_arch_ametr", nil, false, "j_arch_obsid", 2)
 SMODS.Joker({
 	key = "obsid",
 	atlas = "prim",

@@ -153,6 +153,13 @@ return {
                     "{C:inactive}(Cobalt + Neutral Face){}"
                 },
             },
+            j_arch_choco_pretz = {
+                name = 'Chocolate-Dipped Pretzel',
+                text = { "{C:green}#1# in #2#{} chance to be destroyed at",
+                         "end of blind, otherwise, gives a",
+                         "{C:attention}Double Tag{} and levels {C:attention}Two Pair{}"
+                }
+            },
             j_arch_ametr = { --2 fusions so far
                 name = 'Ametrine',
                 text = { "{C:mult}+#1#{} Mult",

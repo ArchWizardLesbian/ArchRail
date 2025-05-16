@@ -606,3 +606,48 @@ SMODS.Joker {
         end
     end
 }
+
+
+FusionJokers.fusions:add_fusion("j_arch_brown_joker", nil, false, "j_arch_pretzel", nil, false, "j_arch_pretzel", 12)
+SMODS.Joker({
+	key = "choco_pretz",
+	atlas = "joke",
+	pos = { x = 2, y = 3 },
+	rarity = "fuse_fusion",
+	cost = 12,
+	config = {
+		extra = {
+			odds = 40
+		},
+	},
+	unlocked = true,
+	discovered = false,
+	blueprint_compat = false,
+	eternal_compat = false,
+	loc_vars = function(self, info_queue, card)
+		local arch = card.ability.extra
+		return {
+			vars = { (G.GAME and G.GAME.probabilities.normal or 1), arch.odds },
+		}
+	end,
+	calculate = function(self, card, context)
+        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+            if pseudorandom('arch_choco_pretz') < G.GAME.probabilities.normal / card.ability.extra.odds then
+				card:remove()
+				card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Ate!', colour = G.C.MULT })
+				card = nil
+			else
+				add_tag(Tag('tag_double'))
+				play_sound('generic1', 0.9 + math.random() * 0.1, 0.8)
+                play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+				card.T.r = -0.2
+                card:juice_up(0.3, 0.4)
+				card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Bite!', colour = G.C.MULT })
+				return {
+					level_up = true,
+  					level_up_hand = "Two Pair"
+				}
+			end
+		end
+	end
+})
