@@ -27,6 +27,14 @@ return {
                          "{C:attention}held in hand{} effects"
                 }
             },
+            j_arch_nickel = {
+                name = "Nickel",
+                text = {
+                    "Each {C:gold}Gold Sealed{} card",
+                    "held in hand at end",
+                    "of round earns {C:money}+$#1#{}",
+                },
+            },
             j_arch_todust = {
                 name = 'To Dust',
                 text = { "{C:green}Fixed 75%{} chance to retrigger",
@@ -85,6 +93,7 @@ return {
                     "Each {C:diamonds}Diamonds{}",
                     "held in hand",
                     "gives {C:chips}+#1#{} Chips",
+                    "{C:inactive}(Sapphire + Greedy Joker){}"
                 },
             },
             j_arch_chaste_joker = {
@@ -93,6 +102,7 @@ return {
                     "Each {C:hearts}Hearts{}",
                     "held in hand",
                     "gives {C:chips}+#1#{} Chips",
+                    "{C:inactive}(Sapphire + Lusty Joker){}"
                 },
             },
             j_arch_patient_joker = {
@@ -101,6 +111,7 @@ return {
                     "Each {C:spades}Spades{}",
                     "held in hand",
                     "gives {C:chips}+#1#{} Chips",
+                    "{C:inactive}(Sapphire + Wrathful Joker){}"
                 },
             },
             j_arch_temperate_joker = {
@@ -109,6 +120,7 @@ return {
                     "Each {C:clubs}Clubs{}",
                     "held in hand",
                     "gives {C:chips}+#1#{} Chips",
+                    "{C:inactive}(Sapphire + Gluttonous Joker){}"
                 },
             },
             j_arch_minotaur = {
@@ -128,17 +140,20 @@ return {
                     "Played {C:attention}face{} cards",
                     "give {X:red,C:white}X#1#{} Mult",
                     "when scored",
+                    "{C:inactive}(Ametrine + Smiley Face){}"
                 },
             },
             j_arch_frowny_face = {
                 name = "Frowny Face",
                 text = {
                     "Played {C:attention}face{} cards",
+                    "are retriggered 2 times and",
                     "give {X:red,C:white}X#1#{} Mult",
                     "when scored",
+                    "{C:inactive}(Cobalt + Neutral Face){}"
                 },
             },
-            j_arch_ametr = { --1 fusions so far
+            j_arch_ametr = { --2 fusions so far
                 name = 'Ametrine',
                 text = { "{C:mult}+#1#{} Mult",
                          "{C:spectral,E:1}Fusion Material{}"
@@ -185,7 +200,7 @@ return {
                     "{C:spectral,E:1}Fusion Material{}"
                 },
             },
-            j_arch_cobalt = { --1 fusions so far
+            j_arch_cobalt = { --2 fusions so far
                 name = "Cobalt",
                 text = {
                     "Each played card has a {C:green}#1# in #2#{}",

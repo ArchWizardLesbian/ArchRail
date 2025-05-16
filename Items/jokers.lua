@@ -170,6 +170,51 @@ SMODS.Joker({
 })
 
 
+SMODS.Joker {
+    key = "nickel",
+	atlas = "joke",
+    pos = { x = 0, y = 3 },
+    rarity = 1,
+    blueprint_compat = true,
+    cost = 5,
+    config = { extra = { dollars = 5 }, },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.dollars } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and
+            context.other_card.seal == 'Gold' then
+            return {
+            	dollars = card.ability.extra.dollars,
+            	func = function() -- This is for timing purposes, this goes after the dollar modification
+            	    G.E_MANAGER:add_event(Event({
+            	        func = function()
+            	            G.GAME.dollar_buffer = 0
+             	            return true
+                       	end
+                    }))
+                end
+            }
+        end
+    end,
+    in_pool = function(self, args)
+    local seal_count = 0
+    if G.GAME and G.playing_cards then
+        for _, card in ipairs(G.playing_cards) do
+            if card.seal == 'Gold' then
+                seal_count = seal_count + 1
+            end
+        end
+    end
+    if seal_count > 0 then
+        return true
+    else
+        return false
+    end
+    end,
+}
+
+
 FusionJokers.fusions:add_fusion("j_blackboard", nil, false, "j_arch_deadcard", nil, false, "j_arch_todust", 6)
 SMODS.Joker({
     key = "todust",
@@ -201,6 +246,7 @@ SMODS.Joker({
   	  	end
 	end
 })
+
 
 --[[
 FusionJokers.fusions:add_fusion("j_glass_joker", nil, false, "j_arch_pink_joker", nil, false, "j_arch_prisma", 7)
@@ -356,7 +402,7 @@ SMODS.Joker({
     end,
 })
 
---[[
+
 FusionJokers.fusions:add_fusion("j_photograph", nil, false, "j_arch_citrine", nil, false, "j_arch_model", 8)
 SMODS.Joker({
     key = "model",
@@ -364,8 +410,8 @@ SMODS.Joker({
     blueprint_compat = true,
     rarity = "fuse_fusion",
     cost = 8,
-    pos = { x = 0, y = 2 },
-    pixel_size = { h = 95 / 1.2 },
+    pos = { x = 0, y = 3 },
+    --pixel_size = { h = 95 / 1.2 },
     config = { extra = { dollars = 6 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.dollars } }
@@ -405,7 +451,7 @@ SMODS.Joker {
     blueprint_compat = true,
     rarity = "fuse_fusion",
     cost = 12,
-    pos = { x = 1, y = 2 },
+    pos = { x = 0, y = 3 },
     config = { extra = { chips = 2 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.extra.chips * math.max(0, (G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) } }
@@ -418,7 +464,7 @@ SMODS.Joker {
         end
     end,
 }
-]]
+
 
 
 FusionJokers.fusions:add_fusion("j_greedy_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_charitous_joker", 2)
@@ -535,7 +581,7 @@ SMODS.Joker {
 }
 
 
-FusionJokers.fusions:add_fusion("j_arch_neutral_face", nil, false, "j_arch_ametr", nil, false, "j_arch_frowny_face", 12)
+FusionJokers.fusions:add_fusion("j_arch_neutral_face", nil, false, "j_arch_cobalt", nil, false, "j_arch_frowny_face", 12)
 SMODS.Joker {
     key = "frowny_face",
 	atlas = "joke",
@@ -543,7 +589,7 @@ SMODS.Joker {
     rarity = "fuse_fusion",
     cost = 12,
     pos = { x = 2, y = 2 },
-    config = { extra = { mult = 5 } },
+    config = { extra = { mult = 1.5, retriggers = 2 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
     end,
@@ -553,7 +599,10 @@ SMODS.Joker {
                 xmult = card.ability.extra.mult
             }
         end
+        if context.repetition and context.cardarea == G.play and context.other_card:is_face() then
+            return {
+                repetitions = card.ability.extra.retriggers
+            }
+        end
     end
 }
-
--- Nickel, Each Gold Sealed card held in hand at end of round earns $5
