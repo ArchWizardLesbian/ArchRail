@@ -138,7 +138,7 @@ return {
                 name = "Neutral Face",
                 text = {
                     "Played {C:attention}face{} cards",
-                    "give {X:red,C:white}X#1#{} Mult",
+                    "give {C:red}+#1#{} Mult",
                     "when scored",
                     "{C:inactive}(Ametrine + Smiley Face){}"
                 },
@@ -147,8 +147,8 @@ return {
                 name = "Frowny Face",
                 text = {
                     "Played {C:attention}face{} cards",
-                    "are retriggered 2 times and",
-                    "give {X:red,C:white}X#1#{} Mult",
+                    "are retriggered {C:attention}2{} times and",
+                    "give {C:red}+#1#{} Mult",
                     "when scored",
                     "{C:inactive}(Cobalt + Neutral Face){}"
                 },
@@ -204,6 +204,14 @@ return {
                     "create a {C:tarot}Tarot{} card",
                     "when {C:attention}Blind{} is selected",
                     "{C:inactive}(Must have room)",
+                    "{C:spectral,E:1}Fusion Material{}"
+                },
+            },
+            j_arch_sunstone = { --0 fusions so far
+                name = "Sunstone",
+                text = {
+                    "{C:green}#1# in #2#{} chance to",
+                    "give {X:red,C:white}X#3#{} Mult",
                     "{C:spectral,E:1}Fusion Material{}"
                 },
             },

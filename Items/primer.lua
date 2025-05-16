@@ -192,11 +192,10 @@ SMODS.Joker({
     end
 })
 
---[[
 SMODS.Joker({
-	key = "???",
+	key = "sunstone",
 	atlas = "prim",
-	pos = { x = 1, y = 0 },
+	pos = { x = 0, y = 2 },
 	rarity = "arch_primer",
 	cost = 9,
 	allow_duplicates = true,
@@ -205,20 +204,19 @@ SMODS.Joker({
 	blueprint_compat = false,
 	eternal_compat = false,
 	perishable_compat = false,
-    config = { extra = { chips = 30 } },
+    config = { extra = { mult = 2, odds = 2 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips } }
+        return { vars = { G.GAME and G.GAME.probabilities.normal or 1, card.ability.extra.odds, card.ability.extra.mult } }
     end,
 
     calculate = function(self, card, context)
-        if context.joker_main then
+        if context.joker_main and pseudorandom('arch_sun') < G.GAME.probabilities.normal / card.ability.extra.odds then
             return {
-                chips = card.ability.extra.chips
+                xmult = card.ability.extra.mult,
             }
         end
     end
 })
-]]
 
 SMODS.Joker({
 	key = "cobalt",
@@ -245,3 +243,4 @@ SMODS.Joker({
         end
     end
 })
+

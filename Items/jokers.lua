@@ -412,7 +412,7 @@ SMODS.Joker({
     cost = 8,
     pos = { x = 0, y = 3 },
     --pixel_size = { h = 95 / 1.2 },
-    config = { extra = { dollars = 6 } },
+    config = { extra = { dollars = 10 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.dollars } }
     end,
@@ -467,7 +467,7 @@ SMODS.Joker {
 
 
 
-FusionJokers.fusions:add_fusion("j_greedy_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_charitous_joker", 2)
+FusionJokers.fusions:add_fusion("j_greedy_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_charitous_joker", 3)
 SMODS.Joker {
     key = "charitous_joker",
 	atlas = "joke",
@@ -567,14 +567,14 @@ SMODS.Joker {
     rarity = "fuse_fusion",
     cost = 4,
     pos = { x = 3, y = 2 },
-    config = { extra = { mult = 1.5 } },
+    config = { extra = { mult = 15 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:is_face() then
             return {
-                xmult = card.ability.extra.mult
+                mult = card.ability.extra.mult
             }
         end
     end
@@ -589,14 +589,14 @@ SMODS.Joker {
     rarity = "fuse_fusion",
     cost = 12,
     pos = { x = 2, y = 2 },
-    config = { extra = { mult = 1.5, retriggers = 2 } },
+    config = { extra = { mult = 10, retriggers = 2 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:is_face() then
             return {
-                xmult = card.ability.extra.mult
+                mult = card.ability.extra.mult
             }
         end
         if context.repetition and context.cardarea == G.play and context.other_card:is_face() then
