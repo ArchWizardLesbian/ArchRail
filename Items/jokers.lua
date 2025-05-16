@@ -274,7 +274,7 @@ SMODS.Joker({
 })
 
 
-FusionJokers.fusions:add_fusion("j_oops", nil, false, "j_arch_pink_joker", nil, false, "j_arch_gamblecore", 8)
+FusionJokers.fusions:add_fusion("j_oops", nil, false, "j_arch_citrine", nil, false, "j_arch_gamblecore", 8)
 SMODS.Joker({
     key = "gamblecore",
     atlas = "joke",
@@ -286,46 +286,9 @@ SMODS.Joker({
     eternal_compat = false,
     perishable_compat = false,
     blueprint_compat = true,
-    config = {
-        extra = {
-			chanceUp = 1,
-			enhancementReq = 3,
-			prev_tally = 0,
-			odds_increase = 0
-		}
-    },
-	loc_vars = function (self, info_queue, card)
-		local arch = card.ability.extra
-		return {
-			vars = { arch.chanceUp, arch.enhancementReq, arch.odds_increase },
-		}
-	end,
-	update = function(self, card, context)
-		local arch = card.ability.extra
-		local enhance_tally = 0
-		if G.playing_cards then
-			for _, playing_card in ipairs(G.playing_cards) do
-				if playing_card.ability.effect == "Wild Card" then
-					enhance_tally = enhance_tally + 1
-				end
-			end
-		end
-		enhance_tally = math.floor((enhance_tally)/arch.enhancementReq)
-		if enhance_tally ~= arch.prev_tally then
-			local tally_to_odds = enhance_tally - arch.prev_tally
-			arch.odds_increase = (enhance_tally*arch.chanceUp)
-			for k, v in pairs(G.GAME.probabilities) do
-            	G.GAME.probabilities[k] = v + arch.odds_increase
-        	end
-			arch.prev_tally = arch.prev_tally + tally_to_odds
-		end
-	end,
-	remove_from_deck = function(self, card, from_debuff)
-		local arch = card.ability.extra
-		for k, v in pairs(G.GAME.probabilities) do
-         	G.GAME.probabilities[k] = v - arch.odds_increase
-     	end
-	end
+    
+    -- effect = +1 Odds per $10(?) you have
+
 })
 ]]
 
@@ -548,3 +511,49 @@ SMODS.Joker {
         end
     end
 }
+
+
+FusionJokers.fusions:add_fusion("j_smiley_face", nil, false, "j_arch_ametr", nil, false, "j_arch_neutral_face", 4)
+SMODS.Joker {
+    key = "neutral_face",
+	atlas = "joke",
+    blueprint_compat = true,
+    rarity = "fuse_fusion",
+    cost = 4,
+    pos = { x = 3, y = 2 },
+    config = { extra = { mult = 1.5 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:is_face() then
+            return {
+                xmult = card.ability.extra.mult
+            }
+        end
+    end
+}
+
+
+FusionJokers.fusions:add_fusion("j_arch_neutral_face", nil, false, "j_arch_ametr", nil, false, "j_arch_frowny_face", 12)
+SMODS.Joker {
+    key = "frowny_face",
+	atlas = "joke",
+    blueprint_compat = true,
+    rarity = "fuse_fusion",
+    cost = 12,
+    pos = { x = 2, y = 2 },
+    config = { extra = { mult = 5 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:is_face() then
+            return {
+                xmult = card.ability.extra.mult
+            }
+        end
+    end
+}
+
+-- Nickel, Each Gold Sealed card held in hand at end of round earns $5

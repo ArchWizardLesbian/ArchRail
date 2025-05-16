@@ -122,25 +122,41 @@ return {
                     "{C:inactive}(Cobalt + Bull){}"
                 },
             },
-            j_arch_ametr = {
+            j_arch_neutral_face = {
+                name = "Neutral Face",
+                text = {
+                    "Played {C:attention}face{} cards",
+                    "give {X:red,C:white}X#1#{} Mult",
+                    "when scored",
+                },
+            },
+            j_arch_frowny_face = {
+                name = "Frowny Face",
+                text = {
+                    "Played {C:attention}face{} cards",
+                    "give {X:red,C:white}X#1#{} Mult",
+                    "when scored",
+                },
+            },
+            j_arch_ametr = { --1 fusions so far
                 name = 'Ametrine',
                 text = { "{C:mult}+#1#{} Mult",
                          "{C:spectral,E:1}Fusion Material{}"
                 }
             },
-            j_arch_sapphire = {
+            j_arch_sapphire = { --4 fusions so far
                 name = 'Sapphire',
                 text = { "{C:chips}+#1#{} Chips",
                          "{C:spectral,E:1}Fusion Material{}"
                 }
             },
-            j_arch_citrine = {
+            j_arch_citrine = { --1 fusions so far
                 name = 'Citrine',
                 text = { "Earn {C:money}+$#1#{} at end of blind",
                          "{C:spectral,E:1}Fusion Material{}"
                 }
             },
-            j_arch_moonst = {
+            j_arch_moonst = { --0 fusions so far
                 name = "Moonstone",
                 text = {
                     "{C:green}#1# in #2#{} chance to",
@@ -149,7 +165,7 @@ return {
                     "{C:spectral,E:1}Fusion Material{}"
                 },
             },
-            j_arch_quartz = {
+            j_arch_quartz = { --0 fusions so far
                 name = "Quartz",
                 text = {
                     "{X:red,C:white}X0.5{} Mult for each",
@@ -159,7 +175,7 @@ return {
                     "{C:spectral,E:1}Fusion Material{}"
                 },
             },
-            j_arch_obsid = {
+            j_arch_obsid = { --1 fusions so far
                 name = "Obsidian",
                 text = {
                     "{C:green}#1# in #2#{} chance to",
@@ -169,7 +185,7 @@ return {
                     "{C:spectral,E:1}Fusion Material{}"
                 },
             },
-            j_arch_cobalt = {
+            j_arch_cobalt = { --1 fusions so far
                 name = "Cobalt",
                 text = {
                     "Each played card has a {C:green}#1# in #2#{}",
