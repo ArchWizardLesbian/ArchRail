@@ -652,7 +652,7 @@ SMODS.Joker({
 	end
 })
 
---[[
+
 FusionJokers.fusions:add_fusion("j_misprint", nil, false, "j_misprint", nil, false, "j_arch_joker_undefined_404", 13)
 SMODS.Joker({
 	key = "joker_undefined_404",
@@ -663,7 +663,7 @@ SMODS.Joker({
 	unlocked = true,
 	discovered = false,
 	blueprint_compat = true,
-	config = { extra = { mult = 9.62 } },
+	config = { extra = { mult = 31.4 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
     end,
@@ -671,11 +671,10 @@ SMODS.Joker({
     calculate = function(self, card, context)
         if context.joker_main then
             local arch = card.ability.extra
-            arch.mult = ARCH.madness(arch.mult/(1+(0.01*arch.mult)),arch.mult/(1+(0.01*arch.mult)))
+            arch.mult = ARCH.madness(arch.mult,2)
             return {
                 mult = arch.mult
             }
         end
     end
 })
-]]
