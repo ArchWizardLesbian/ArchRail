@@ -182,7 +182,7 @@ SMODS.Joker {
         return { vars = { card.ability.extra.dollars } }
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.hand and not context.end_of_round and
+        if context.individual and context.cardarea == G.hand and context.end_of_round and
             context.other_card.seal == 'Gold' then
             return {
             	dollars = card.ability.extra.dollars,
