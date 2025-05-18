@@ -1,4 +1,5 @@
 SMODS.Shader({ key = 'corrupted', path = 'corrupted.fs' })
+SMODS.Shader({ key = 'hyperwave', path = 'hyperwave.fs' })
 
 
 SMODS.Edition({
@@ -7,16 +8,47 @@ SMODS.Edition({
         name = "Corrupted",
         label = "Corrupted",
         text = {
-            "{C:green}Retrigger{} this card",
-            "{C:inactive,s:0.5}(Effect to be changed in future update){}" -- if you know how to make an edition give -reroll cost, pls tell me ;-;
+            "{C:attention}+#1#{} Joker Slots"
         }
     },
-    shader = "corrupted",
     discovered = true,
     unlocked = true,
-    config = { extra = { repetitions = 1 } },
+    shader = 'corrupted',
+    config = { card_limit = 2 },
     in_shop = true,
-    weight = 8,
-    extra_cost = 6,
-    apply_to_float = true,
+    weight = 3,
+    extra_cost = 5,
+    sound = { sound = "negative", per = 1.5, vol = 0.4 },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.edition.card_limit } }
+    end,
+    get_weight = function(self)
+        return self.weight
+    end,
+})
+
+
+SMODS.Edition({
+    key = "hyperwave",
+    loc_txt = {
+        name = "Polywave",
+        label = "Polywave",
+        text = {
+            "{C:attention}+#1#{} Joker Slots"
+        }
+    },
+    discovered = true,
+    unlocked = true,
+    shader = 'hyperwave',
+    config = { card_limit = 2 },
+    in_shop = true,
+    weight = 3,
+    extra_cost = 5,
+    sound = { sound = "negative", per = 1.5, vol = 0.4 },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.edition.card_limit } }
+    end,
+    get_weight = function(self)
+        return self.weight
+    end,
 })

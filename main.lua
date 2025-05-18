@@ -5,6 +5,7 @@ ARCH.compat = {
     partners = (SMODS.Mods['partner'] or {}).can_load or false
 }
 
+SMODS.load_file("Items/func.lua")()
 SMODS.load_file("Items/jokers.lua")()
 SMODS.load_file("Items/primer.lua")()
 SMODS.load_file("Items/shaders.lua")()

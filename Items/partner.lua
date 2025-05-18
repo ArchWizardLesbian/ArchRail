@@ -5,6 +5,7 @@ Partner_API.Partner{
     discovered = true,
     pos = {x = 0, y = 0},
     loc_txt = {},
+--    individual_quips = true,
     atlas = "minijoke",
     config = {extra = {related_card = "j_arch_pretzel", odds = 2}},
     loc_vars = function(self, info_queue, card)
@@ -21,5 +22,5 @@ Partner_API.Partner{
                 update_hand_text({sound = "button", volume = 0.7, pitch = 1.1, delay = 0}, {mult = 0, chips = 0, handname = "", level = ""})
 			end
 		end
-	end
+    end
 }

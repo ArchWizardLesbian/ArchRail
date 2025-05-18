@@ -160,6 +160,12 @@ return {
                          "{C:attention}Double Tag{} and levels {C:attention}Two Pair{}"
                 }
             },
+            j_arch_joker_undefined_404 = {
+                name = 'ERROR',
+                text = { "{C:mult}+#1# Mult?{}",
+                         "{C:inactive}(Misprint + Misprint){}"
+                }
+            },
             j_arch_ametr = { --2 fusions so far
                 name = 'Ametrine',
                 text = { "{C:mult}+#1#{} Mult",
@@ -258,7 +264,90 @@ return {
         },
         poker_hand_descriptions={},
         poker_hands={},
-        quips={},
+        quips={
+            pnr_arch_pretzelbuddy_1={
+                "I will burn your house down"
+            },
+            pnr_arch_pretzelbuddy_2={
+                "You're such a good person"
+            },
+            pnr_arch_pretzelbuddy_3={
+                "Sometimes all you need is",
+                "a little {C:attention}crisp{} in life",
+                "{C:inactive,s:0.4}it's me, I'm the crisp"
+            },
+            pnr_arch_pretzelbuddy_4={
+                "I hate {C:attention}The Arm{}, worst blind"
+            },
+            pnr_arch_pretzelbuddy_5={
+                "I love {C:attention}The Arm{}, I hope we don't have",
+                "to go against {C:attention}The Club{} or some shit"
+            },
+            pnr_arch_pretzelbuddy_6={
+                "I'm a bad person I think...",
+                "ok, that was a lie, sorry"
+            },
+            pnr_arch_pretzelbuddy_7={
+                "I am invicible"
+            },
+            pnr_arch_pretzelbuddy_8={
+                "Mmmmm, thinking about fire rn"
+            },
+            pnr_arch_pretzelbuddy_9={
+                "{C:attention}Momma{} wants {C:attention}Vodka{}"
+            },
+            pnr_arch_pretzelbuddy_10={
+                "I love you, you're so cool"
+            },
+            pnr_arch_pretzelbuddy_11={
+                "Play more {C:attention}Two Pairs{},",
+                "please, I am begging you, this",
+                "is litteraly all I am capable of"
+            },
+            pnr_arch_pretzelbuddy_12={
+                "You suck at this game"
+            },
+            pnr_arch_pretzelbuddy_13={
+                "Do you think you're better than me?"
+            },
+            pnr_arch_pretzelbuddy_14={
+                "The {C:attention}Jack of Clubs{} looks kinda hot, ngl"
+            },
+            pnr_arch_pretzelbuddy_15={
+                "The {C:attention}Queen of Clubs{} looks kinda hot, ngl"
+            },
+            pnr_arch_pretzelbuddy_16={
+                "{C:attention}Jacks{} always think they're so fucking cool,",
+                "fucking {C:attention}Jacks{}"
+            },
+            pnr_arch_pretzelbuddy_17={
+                "I hate royalty, think they're so good"
+            },
+            pnr_arch_pretzelbuddy_18={
+                "Do you think {C:attention}Fantasy{} is free later tonight?"
+            },
+            pnr_arch_pretzelbuddy_19={
+                "I love arson"
+            },
+            pnr_arch_pretzelbuddy_20={
+                "I think I might be bipolar"
+            },
+            pnr_arch_pretzelbuddy_21={
+                "I'm sorry I'm like this"
+            },
+            pnr_arch_pretzelbuddy_22={
+                "Why was I cursed to have no limbs"
+            },
+            pnr_arch_pretzelbuddy_23={
+                "More {C:attention}Two Pair{}"
+            },
+            pnr_arch_pretzelbuddy_24={
+                "I like {C:attention}Two Pairs{}"
+            },
+            pnr_arch_pretzelbuddy_25={
+                "{C:attention}Momma{} wanna see {C:attention}Two Pair{}"
+            },--if adding more crispy quips, please also modify the partner lua to check for higher numbers
+        },
         ranks={},
         suits_plural={},
         suits_singular={},
