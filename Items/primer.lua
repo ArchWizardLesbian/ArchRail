@@ -204,15 +204,15 @@ SMODS.Joker({
 	blueprint_compat = false,
 	eternal_compat = false,
 	perishable_compat = false,
-    config = { extra = { mult = 2, odds = 2 } },
+    config = { extra = { chips = 1 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME and G.GAME.probabilities.normal or 1, card.ability.extra.odds, card.ability.extra.mult } }
+        return { vars = { card.ability.extra.chips, card.ability.extra.chips * math.max(0, (G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) } }
     end,
 
     calculate = function(self, card, context)
-        if context.joker_main and pseudorandom('arch_sun') < G.GAME.probabilities.normal / card.ability.extra.odds then
+        if context.joker_main then
             return {
-                xmult = card.ability.extra.mult,
+                chips = to_number(card.ability.extra.chips * math.max(0, (G.GAME.dollars + (G.GAME.dollar_buffer or 0))))
             }
         end
     end
@@ -239,6 +239,33 @@ SMODS.Joker({
         if context.repetition and context.cardarea == G.play and pseudorandom('arch_cobalt') < G.GAME.probabilities.normal / card.ability.extra.odds then
             return {
                 repetitions = card.ability.extra.retriggers
+            }
+        end
+    end
+})
+
+SMODS.Joker({
+	key = "ruby",
+	atlas = "prim",
+	pos = { x = 2, y = 2 },
+	rarity = "arch_primer",
+	cost = 9,
+	allow_duplicates = true,
+	unlocked = true,
+	discovered = false,
+	blueprint_compat = false,
+	eternal_compat = false,
+	perishable_compat = false,
+
+    calculate = function(self, card, context)
+        if context.first_hand_drawn then
+            local eval = function() return G.GAME.current_round.discards_used == 0 and not G.RESET_JIGGLES end
+            juice_card_until(card, eval, true)
+        end
+        if context.discard and not context.blueprint and
+            G.GAME.current_round.discards_used <= 0 and #context.full_hand == 1 then
+            return {
+                remove = true
             }
         end
     end

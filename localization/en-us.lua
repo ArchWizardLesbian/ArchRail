@@ -224,8 +224,9 @@ return {
             j_arch_sunstone = { --0 fusions so far
                 name = "Sunstone",
                 text = {
-                    "{C:green}#1# in #2#{} chance to",
-                    "give {X:red,C:white}X#3#{} Mult",
+                    "{C:chips}+#1#{} Chip for",
+                    "each {C:money}$1{} you have",
+                    "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
                     "{C:spectral,E:1}Fusion Material{}"
                 },
             },
@@ -234,6 +235,14 @@ return {
                 text = {
                     "Each played card has a {C:green}#1# in #2#{}",
                     "chance to be {C:attention}retriggered{} #3# time",
+                    "{C:spectral,E:1}Fusion Material{}"
+                },
+            },
+            j_arch_ruby = { --0 fusions so far
+                name = "Ruby",
+                text = {
+                    "If {C:attention}first discard{} of round",
+                    "has only {C:attention}1{} card, destroy it",
                     "{C:spectral,E:1}Fusion Material{}"
                 },
             },
