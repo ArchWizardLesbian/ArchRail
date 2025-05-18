@@ -8,7 +8,7 @@ SMODS.Edition({
     loc_txt = {
         name = "Corrupted",
         label = "Corrupted",
-        text = {
+        text = { -- True effect to be implemented = -2 Reroll Cost
             "{C:dark_edition}+1{} Joker Slot",
             "{X:mult,C:white}X#2#{} Mult"
         }
@@ -74,7 +74,7 @@ SMODS.Edition({
     loc_txt = {
         name = "Screen",
         label = "Screen",
-        text = {
+        text = { -- True effect to be implemented = +handsize?
             "{C:dark_edition}+1{} Joker Slot",
             "{X:mult,C:white}X#2#{} Mult"
         }

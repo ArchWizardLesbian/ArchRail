@@ -678,3 +678,49 @@ SMODS.Joker({
         end
     end
 })
+
+
+FusionJokers.fusions:add_fusion("j_scholar", nil, false, "j_certificate", nil, false, "j_arch_scholarship", 8)
+SMODS.Joker({
+	key = "scholarship",
+	atlas = "joke",
+	pos = { x = 0, y = 3 },
+	rarity = "fuse_fusion",
+	cost = 13,
+	unlocked = true,
+	discovered = false,
+	blueprint_compat = true,
+
+    calculate = function(self, card, context)
+        if context.first_hand_drawn then
+            local _card = create_playing_card({
+                front = pseudorandom_element(G.P_CARDS, pseudoseed('arch_scholarship')),
+                center = G.P_CENTERS.c_base
+            }, G.discard, true, nil, { G.C.SECONDARY_SET.Enhanced }, true)
+            return {
+                func = function()
+                    -- This is for retrigger purposes, Jokers need to return something to retrigger
+                    -- You can also do this outside the return and `return nil, true` instead
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                        local cards = {}
+                        for i = 1, 1 do
+                            local _suit, _rank =
+                                pseudorandom_element(SMODS.Suits, pseudoseed('arch_scholarship')).card_key, 'A'
+                            local cen_pool = {}
+                            cards[i] = create_playing_card({
+                                front = G.P_CARDS[_suit .. '_' .. _rank],
+                                center = pseudorandom_element(cen_pool, pseudoseed('arch_scholarship'))
+                            }, G.hand, nil, i ~= 1, { G.C.SECONDARY_SET.Spectral })
+                        cards[i]:set_seal(SMODS.poll_seal({guaranteed = true}))
+                        end
+                        SMODS.calculate_context({ playing_card_added = true, cards = cards })
+                        return true
+                    end
+                    }))
+                    SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
+                end
+            }
+        end
+    end,
+})

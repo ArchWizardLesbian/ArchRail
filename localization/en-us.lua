@@ -162,8 +162,16 @@ return {
             },
             j_arch_joker_undefined_404 = {
                 name = 'ERROR',
-                text = { "{C:mult}+#1# Mult?{}",
+                text = { "{C:dark_edition}+#1# Mult{}",
                          "{C:inactive}(Misprint + Misprint){}"
+                }
+            },
+             j_arch_scholarship = {
+                name = 'Scholarship',
+                text = { "When round begins,",
+                         "add an {C:attention}Ace{} with a random",
+                         "{C:attention}suit{} and a random",
+                         "{C:attention}seal{} to your hand",
                 }
             },
             j_arch_ametr = { --2 fusions so far
