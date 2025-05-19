@@ -723,8 +723,3 @@ SMODS.Joker({
         end
     end,
 })
-
---[[ some concepts for future me,
- Jean Jacket = Ruby + Spare Trousers
- Cowboy Hat = Sunstone + Spare Trousers
-]]
