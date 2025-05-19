@@ -157,7 +157,8 @@ return {
                 name = 'Chocolate-Dipped Pretzel',
                 text = { "{C:green}#1# in #2#{} chance to be destroyed at",
                          "end of blind, otherwise, gives a",
-                         "{C:attention}Double Tag{} and levels {C:attention}Two Pair{}"
+                         "{C:attention}Double Tag{} and levels {C:attention}Two Pair{}",
+                         "{C:inactive}(Chocolate Bar + Pretzel){}"
                 }
             },
             j_arch_joker_undefined_404 = {
@@ -172,6 +173,7 @@ return {
                          "add an {C:attention}Ace{} with a random",
                          "{C:attention}suit{} and a random",
                          "{C:attention}seal{} to your hand",
+                         "{C:inactive}(Scholar + Certificate){}"
                 }
             },
             j_arch_ametr = { --2 fusions so far
@@ -234,7 +236,7 @@ return {
                 name = "Cobalt",
                 text = {
                     "Each played card has a {C:green}#1# in #2#{}",
-                    "chance to be {C:attention}retriggered{} #3# time",
+                    "chance to be retriggered {C:attention}#3#{} time",
                     "{C:spectral,E:1}Fusion Material{}"
                 },
             },

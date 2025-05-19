@@ -64,7 +64,7 @@ SMODS.Joker({
 	atlas = "joke",
 	pos = { x = 1, y = 0 },
 	rarity = 3,
-	cost = 6,
+	cost = 8,
 	config = {
 		extra = {
 			triggersleft = 5
@@ -106,7 +106,7 @@ SMODS.Joker({
 	atlas = "joke",
 	pos = { x = 2, y = 0 },
 	rarity = 2,
-	cost = 1,
+	cost = 3,
 	allow_duplicates = true,
 	config = {
 		extra = {
@@ -182,9 +182,8 @@ SMODS.Joker {
         return { vars = { card.ability.extra.dollars } }
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.hand and context.end_of_round and
-            context.other_card.seal == 'Gold' then
-            return {
+        if context.individual and context.cardarea == G.hand and context.end_of_round and context.other_card.seal == 'Gold' then
+            return {            
             	dollars = card.ability.extra.dollars,
             	func = function() -- This is for timing purposes, this goes after the dollar modification
             	    G.E_MANAGER:add_event(Event({
@@ -724,3 +723,8 @@ SMODS.Joker({
         end
     end,
 })
+
+--[[ some concepts for future me,
+ Jean Jacket = Ruby + Spare Trousers
+ Cowboy Hat = Sunstone + Spare Trousers
+]]
