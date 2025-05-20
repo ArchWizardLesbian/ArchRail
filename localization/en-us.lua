@@ -35,7 +35,7 @@ return {
                     "of round earns {C:money}+$#1#{}",
                 },
             },
-            j_arch_geoligist = {
+            j_arch_geologist = {
                 name = "Geologist",
                 text = {
                     "{C:spectral}X#1# Primer{} rate",
