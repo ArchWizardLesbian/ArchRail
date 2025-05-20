@@ -228,7 +228,7 @@ SMODS.Joker {
     rarity = 2,
     blueprint_compat = true,
     cost = 6,
-    config = { extra = { rarmult = 50 }, },
+    config = { extra = { rarmult = 5 }, },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.rarmult } }
     end,

@@ -7,6 +7,7 @@ ARCH.compat = {
 
 SMODS.load_file("Items/func.lua")()
 SMODS.load_file("Items/jokers.lua")()
+SMODS.load_file("Items/voucher.lua")()
 SMODS.load_file("Items/primer.lua")()
 SMODS.load_file("Items/shaders.lua")()
 
@@ -18,6 +19,14 @@ end
 SMODS.Atlas{
     key = "joke",
     path = "joker.png",
+    px = 71,
+    py = 95
+}
+
+--voucher ATLAS
+SMODS.Atlas{
+    key = "vouch",
+    path = "vouchers.png",
     px = 71,
     py = 95
 }

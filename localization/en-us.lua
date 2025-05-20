@@ -38,7 +38,7 @@ return {
             j_arch_geologist = {
                 name = "Geologist",
                 text = {
-                    "{C:spectral}X#1# Primer{} rate",
+                    "{C:spectral}Primers{} are {X:spectral,C:white}X#1#{} more common",
                 },
             },
             j_arch_todust = {
@@ -262,7 +262,20 @@ return {
         Stake={},
         Tag={},
         Tarot={},
-        Voucher={},
+        Voucher={
+            v_arch_alchemy={
+                name = "Sulphur",
+                text = {
+                    "{C:spectral}Primers{} are {X:spectral,C:white}X#1#{} more common",
+                },
+            },
+            v_arch_alchemy_plus={
+                name = "Brimstone",
+                text = {
+                    "{C:spectral}Primers{} are {X:spectral,C:white}X#1#{} more common",
+                },
+            },
+        },
         Partner={
             pnr_arch_pretzelbuddy={
                 name = "Crispy",
