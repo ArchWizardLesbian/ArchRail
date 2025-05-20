@@ -1,8 +1,10 @@
 # ArchRail - 
-![image](https://github.com/user-attachments/assets/9e79212d-1fbe-4fb8-be3c-540398c50e90)
+![image](https://github.com/user-attachments/assets/39bb5b9b-d7c3-454c-8b5f-563813f3c067)
 A Vanilla(ish) Balatro mod!!
-Currently has 5 Jokers, including 1 Fusion Joker, and more to come!
-If the [Partner](https://github.com/Icecanno/Partner-API/tree/main) mod is installed, ArchRail also includes a new Partner, named Crispy!
+ArchRail currently contains 30 total jokers, including 15 Fusion Jokers!
+We also have 2 more vouchers and 4 more editions!
+Have fun! There will be more to come!
+Oh, and if you have the [Partner](https://github.com/Icecanno/Partner-API/tree/main) mod, there's a little surprise waiting for you :)
 
 # Requirements
 - [Steamodded](https://github.com/Steamopollys/Steamodded)
