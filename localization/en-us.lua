@@ -153,7 +153,7 @@ return {
                 name = "Neutral Face",
                 text = {
                     "Played {C:attention}face{} cards",
-                    "give {C:red}+#1#{} Mult",
+                    "give {X:mult,C:white}x#1#{} Mult",
                     "when scored",
                     "{C:inactive}(Ametrine + Smiley Face){}"
                 },
@@ -163,7 +163,7 @@ return {
                 text = {
                     "Played {C:attention}face{} cards",
                     "are retriggered {C:attention}2{} times and",
-                    "give {C:red}+#1#{} Mult",
+                    "give {X:mult,C:white}+#1#{} Mult",
                     "when scored",
                     "{C:inactive}(Cobalt + Neutral Face){}"
                 },
