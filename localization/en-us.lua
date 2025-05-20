@@ -140,6 +140,15 @@ return {
                     "{C:inactive}(Cobalt + Bull){}"
                 },
             },
+            j_arch_ecstatic_face = {
+                name = "Ecstatic Face",
+                text = {
+                    "Played {C:attention}face{} cards",
+                    "give {C:red}+#1#{} Mult",
+                    "per {C:money}$#2#{} when scored",
+                    "{C:inactive}(Sunstone + Smiley Face){}"
+                },
+            },
             j_arch_neutral_face = {
                 name = "Neutral Face",
                 text = {
@@ -229,7 +238,7 @@ return {
                     "{C:spectral,E:1}Fusion Material{}"
                 },
             },
-            j_arch_sunstone = { --0 fusions so far
+            j_arch_sunstone = { --1 fusions so far
                 name = "Sunstone",
                 text = {
                     "{C:chips}+#1#{} Chip for",

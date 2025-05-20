@@ -594,14 +594,14 @@ SMODS.Joker {
     rarity = "fuse_fusion",
     cost = 4,
     pos = { x = 3, y = 2 },
-    config = { extra = { mult = 15 } },
+    config = { extra = { xmult = 1.5 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult } }
+        return { vars = { card.ability.extra.xmult } }
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:is_face() then
             return {
-                mult = card.ability.extra.mult
+                mult = card.ability.extra.xmult
             }
         end
     end
@@ -614,7 +614,7 @@ SMODS.Joker {
     blueprint_compat = true,
     rarity = "fuse_fusion",
     cost = 12,
-    pos = { x = 3, y = 2 },
+    pos = { x = 4, y = 2 },
     config = { extra = { mult = 4, dollars = 5 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.dollars, card.ability.extra.mult * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) / card.ability.extra.dollars) } }
@@ -622,7 +622,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:is_face() then
             return {
-                mult = card.ability.extra.mult * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) / card.ability.extra.dollars)
+                mult = to_number(card.ability.extra.mult * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) / card.ability.extra.dollars))
             }
         end
     end
@@ -636,14 +636,14 @@ SMODS.Joker {
     rarity = "fuse_fusion",
     cost = 12,
     pos = { x = 2, y = 2 },
-    config = { extra = { mult = 10, retriggers = 2 } },
+    config = { extra = { xmult = 1.25, retriggers = 2 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult } }
+        return { vars = { card.ability.extra.xmult } }
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:is_face() then
             return {
-                mult = card.ability.extra.mult
+                mult = card.ability.extra.xmult
             }
         end
         if context.repetition and context.cardarea == G.play and context.other_card:is_face() then
