@@ -36,9 +36,9 @@ return {
                 },
             },
             j_arch_geoligist = {
-                name = "geologist",
+                name = "Geologist",
                 text = {
-                    "rock funny",
+                    "{C:spectral}X#1# Primer{} rate",
                 },
             },
             j_arch_todust = {
