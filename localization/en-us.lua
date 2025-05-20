@@ -35,6 +35,12 @@ return {
                     "of round earns {C:money}+$#1#{}",
                 },
             },
+            j_arch_geoligist = {
+                name = "geologist",
+                text = {
+                    "rock funny",
+                },
+            },
             j_arch_todust = {
                 name = 'To Dust',
                 text = { "{C:green}Fixed 75%{} chance to retrigger",

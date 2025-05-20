@@ -32,14 +32,25 @@ extern PRECISION vec4 burn_colour_2;
 // Apply dissolve effect (when card is being "burnt", e.g. when consumable is used)
 vec4 dissolve_mask(vec4 tex, vec2 texture_coords, vec2 uv);
 
+vec2 rotate_uv(vec2 uv, float rotation)
+{
+    float mid = 0.5;
+    return vec2(
+        cos(rotation) * (uv.x - mid) + sin(rotation) * (uv.y - mid) + mid,
+        cos(rotation) * (uv.y - mid) - sin(rotation) * (uv.x - mid) + mid
+    );
+}
+
 vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
 {
     // Take pixel color (rgba) from `texture` at `texture_coords`, equivalent of texture2D in GLSL
     vec4 tex = Texel(texture, texture_coords);
     // Position of a pixel within the sprite
 	vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
-    
     float truetime = (goldsheet.y + time);
+
+    uv = rotate_uv(uv, 90.0*sin(truetime/12.));
+
     float divisor = 3.-sin(truetime);
     vec3 warp = vec3(pow(uv,vec2(sin(truetime)/divisor,sin(truetime)/divisor)),sin(truetime+((uv.x+uv.y)*0.65))/divisor);
     

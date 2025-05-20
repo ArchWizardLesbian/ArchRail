@@ -7,7 +7,7 @@ SMODS.Joker({
 	config = {
 		extra = {
 			max = 21,
-			min = 1
+			min = 3
 		},
 	},
 	unlocked = true,
@@ -56,6 +56,14 @@ SMODS.Joker({
 			end
 		end
 	end,
+    in_pool = function(self, args) --equivalent to `enhancement_gate = 'm_wild'`
+        for _, playing_card in ipairs(G.playing_cards or {}) do
+            if SMODS.has_enhancement(playing_card, 'm_wild') then
+                return true
+            end
+        end
+        return false
+    end,
 })
 
 
@@ -212,6 +220,26 @@ SMODS.Joker {
     end
     end,
 }
+
+SMODS.Joker {
+    key = "geologist",
+	atlas = "joke",
+    pos = { x = 0, y = 3 },
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 6,
+    config = { extra = { rarmult = 50 }, },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.rarmult } }
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        G.GAME['arch_primer_mod'] = ((G.GAME['arch_primer_mod'] or 1)*card.ability.extra.rarmult)or G.GAME['arch_primer_mod']
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        G.GAME['arch_primer_mod'] = ((G.GAME['arch_primer_mod'] or 1)/card.ability.extra.rarmult) or G.GAME['arch_primer_mod']
+    end,
+}
+
 
 
 FusionJokers.fusions:add_fusion("j_blackboard", nil, false, "j_arch_deadcard", nil, false, "j_arch_todust", 6)
@@ -558,7 +586,7 @@ SMODS.Joker {
 }
 
 
-FusionJokers.fusions:add_fusion("j_smiley_face", nil, false, "j_arch_ametr", nil, false, "j_arch_neutral_face", 4)
+FusionJokers.fusions:add_fusion("j_smiley", nil, false, "j_arch_ametr", nil, false, "j_arch_neutral_face", 4)
 SMODS.Joker {
     key = "neutral_face",
 	atlas = "joke",
@@ -579,6 +607,26 @@ SMODS.Joker {
     end
 }
 
+FusionJokers.fusions:add_fusion("j_smiley", nil, false, "j_arch_sunstone", nil, false, "j_arch_ecstatic_face", 12)
+SMODS.Joker {
+    key = "ecstatic_face",
+    atlas = "joke",
+    blueprint_compat = true,
+    rarity = "fuse_fusion",
+    cost = 12,
+    pos = { x = 3, y = 2 },
+    config = { extra = { mult = 4, dollars = 5 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.dollars, card.ability.extra.mult * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) / card.ability.extra.dollars) } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:is_face() then
+            return {
+                mult = card.ability.extra.mult * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) / card.ability.extra.dollars)
+            }
+        end
+    end
+}
 
 FusionJokers.fusions:add_fusion("j_arch_neutral_face", nil, false, "j_arch_cobalt", nil, false, "j_arch_frowny_face", 12)
 SMODS.Joker {
