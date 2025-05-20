@@ -655,7 +655,7 @@ SMODS.Joker {
 }
 
 
-FusionJokers.fusions:add_fusion("j_arch_brown_joker", nil, false, "j_arch_pretzel", nil, false, "j_arch_pretzel", 12)
+FusionJokers.fusions:add_fusion("j_arch_brown_joker", nil, false, "j_arch_pretzel", nil, false, "j_arch_choco_pretzel", 12)
 SMODS.Joker({
 	key = "choco_pretz",
 	atlas = "joke",
