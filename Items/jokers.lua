@@ -563,7 +563,7 @@ SMODS.Joker {
 }
 
 
-FusionJokers.fusions:add_fusion("j_gluttonous_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_temperate_joker", 3)
+FusionJokers.fusions:add_fusion("j_gluttenous_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_temperate_joker", 3)
 SMODS.Joker {
     key = "temperate_joker",
 	atlas = "joke",
