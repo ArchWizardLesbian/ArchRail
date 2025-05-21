@@ -10,14 +10,13 @@ SMODS.Edition({
         name = "Corrupted",
         label = "Corrupted",
         text = { -- True effect to be implemented = -2 Reroll Cost
-            "{C:dark_edition}+#1#{} Joker Slot",
-            "{X:mult,C:white}X#2#{} Mult"
+            "{C:mult}+#1#{} Mult"
         }
     },
     discovered = true,
     unlocked = true,
     shader = 'corrupted',
-    config = { card_limit = 1, x_mult = 1.5 },
+    config = { mult = 15 },
     in_shop = true,
     weight = 2,
     extra_cost = 5,
@@ -43,14 +42,13 @@ SMODS.Edition({
         name = "Polywave",
         label = "Polywave",
         text = {
-            "{C:dark_edition}+#1#{} Joker Slot",
-            "{X:mult,C:white}X#2#{} Mult"
+            "{X:mult,C:white}X#1#{} Mult"
         }
     },
     discovered = true,
     unlocked = true,
     shader = 'hyperwave',
-    config = { card_limit = 1, x_mult = 1.5 },
+    config = { x_mult = 2 },
     in_shop = true,
     weight = 2,
     extra_cost = 5,
@@ -82,7 +80,7 @@ SMODS.Edition({
     discovered = true,
     unlocked = true,
     shader = 'retrograph',
-    config = { card_limit = 2 },
+    config = { card_limit = 1 },
     in_shop = true,
     weight = 2,
     extra_cost = 5,
@@ -101,14 +99,13 @@ SMODS.Edition({
         name = "Phosphorescent",
         label = "Phosphorescent",
         text = { -- True effect to be implemented = something something money?
-            "{C:dark_edition}+#1#{} Joker Slot",
             "{C:chips}+#2#{} Chips"
         }
     },
     discovered = true,
     unlocked = true,
     shader = 'goldsheet',
-    config = { card_limit = 1, chips = 50 },
+    config = { chips = 75 },
     in_shop = true,
     weight = 2,
     extra_cost = 5,

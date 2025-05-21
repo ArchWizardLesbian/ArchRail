@@ -163,7 +163,7 @@ return {
                 text = {
                     "Played {C:attention}face{} cards",
                     "are retriggered {C:attention}2{} times and",
-                    "give {X:mult,C:white}+#1#{} Mult",
+                    "give {X:mult,C:white}X#1#{} Mult",
                     "when scored",
                     "{C:inactive}(Cobalt + Neutral Face){}"
                 },
