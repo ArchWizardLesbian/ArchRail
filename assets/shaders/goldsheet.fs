@@ -49,7 +49,7 @@ vec4 effect(vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords)
 	vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
     float truetime = (goldsheet.y + time);
 
-    uv = rotate_uv(uv, 90.0*sin(truetime/12.));
+    uv = rotate_uv(uv, 0.);
 
     float divisor = 3.-sin(truetime);
     vec3 warp = vec3(pow(uv,vec2(sin(truetime)/divisor,sin(truetime)/divisor)),sin(truetime+((uv.x+uv.y)*0.65))/divisor);

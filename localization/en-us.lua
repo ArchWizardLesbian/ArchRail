@@ -228,7 +228,7 @@ return {
                     "{C:spectral,E:1}Fusion Material{}"
                 },
             },
-            j_arch_quartz = { --0 fusions so far
+            j_arch_quartz = { --1 fusions so far
                 name = "Quartz",
                 text = {
                     "{X:red,C:white}X0.5{} Mult for each",
