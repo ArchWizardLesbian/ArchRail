@@ -601,7 +601,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:is_face() then
             return {
-                mult = card.ability.extra.xmult
+                xmult = card.ability.extra.xmult
             }
         end
     end
@@ -643,7 +643,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:is_face() then
             return {
-                mult = card.ability.extra.xmult
+                xmult = card.ability.extra.xmult
             }
         end
         if context.repetition and context.cardarea == G.play and context.other_card:is_face() then
