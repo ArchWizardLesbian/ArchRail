@@ -182,6 +182,13 @@ return {
                          "{C:inactive}(Misprint + Misprint){}"
                 }
             },
+            j_arch_twilight = {
+                name = 'Twilight',
+                text = { "{C:attention}+#1#{} Levels to",
+                         "final played hand",
+                         "{C:inactive}(Moonstone + Dusk){}"
+                }
+            },
             j_arch_scholarship = {
                 name = 'Scholarship',
                 text = { "When round begins,",
@@ -219,7 +226,7 @@ return {
                          "{C:spectral,E:1}Fusion Material{}"
                 }
             },
-            j_arch_moonst = { --0 fusions so far
+            j_arch_moonst = { --1 fusions so far
                 name = "Moonstone",
                 text = {
                     "{C:green}#1# in #2#{} chance to",

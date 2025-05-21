@@ -135,13 +135,13 @@ SMODS.Joker({
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
             if pseudorandom('arch_pretz') < G.GAME.probabilities.normal / card.ability.extra.odds then
 				card:remove()
-				card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Ate!', colour = G.C.MULT })
+				card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Ate!', colour = G.C.FILTER })
 				card = nil
 			else
 				play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
 				card.T.r = -0.2
                 card:juice_up(0.3, 0.4)
-				card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Bite!', colour = G.C.MULT })
+				card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Bite!', colour = G.C.SECONDARY_SET.Planet })
 				return {
 					level_up = true,
   					level_up_hand = "Two Pair"
@@ -825,7 +825,8 @@ SMODS.Joker {
     end
 }
 
---[[ Effect: Upgrade level of last played hand 3-5 times (not sure what balancing is best there for number of upgrades yet)
+
+--Effect: Upgrade level of last played hand 3-5 times (not sure what balancing is best there for number of upgrades yet)
 FusionJokers.fusions:add_fusion("j_dusk", nil, false, "j_arch_moonstone", nil, false, "j_arch_twilight", 8)
 SMODS.Joker {
     key = "twilight",
@@ -834,9 +835,19 @@ SMODS.Joker {
 	pos = { x = 0, y = 3 },
 	rarity = "fuse_fusion",
     cost = 8,
-    config = { extra = { cards = 1 } },
+    config = { extra = { levels = 5 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.cards } }
+        return { vars = { card.ability.extra.levels } }
     end,
+    calculate = function(self, card, context)
+        if context.end_of_round and context.game_over == false and context.main_eval and G.GAME.current_round.hands_left == 0 and not context.blueprint then
+            play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
+			card.T.r = -0.2
+            card:juice_up(0.3, 0.4)
+			card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Upgrade', colour = G.C.SECONDARY_SET.Planet })
+			return {
+				level_up = card.ability.extra.levels,
+			}
+        end
+    end
 }
-]]
