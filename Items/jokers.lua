@@ -771,3 +771,56 @@ SMODS.Joker({
         end
     end,
 })
+
+
+FusionJokers.fusions:add_fusion("j_dna", nil, false, "j_arch_quartz", nil, false, "j_arch_frowny_face", 12)
+SMODS.Joker {
+    key = "rna",
+    blueprint_compat = true,
+    atlas = "joke",
+	pos = { x = 0, y = 3 },
+	rarity = "fuse_fusion",
+    cost = 8,
+    config = { extra = { cards = 1 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.cards } }
+    end,
+     calculate = function(self, card, context)
+        if context.first_hand_drawn and not context.blueprint then
+            local eval = function() return G.GAME.current_round.hands_played == 0 and not G.RESET_JIGGLES end
+            juice_card_until(card, eval, true)
+        end
+        if context.before and context.main_eval and G.GAME.current_round.hands_played == 0 and #context.full_hand == 2 then
+            G.E_MANAGER:add_event(Event({
+            func = function()
+                local _first_dissolve = nil
+                local new_cards = {}
+                for i = 1, card.ability.extra.cards do
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    local _card = copy_card(context.full_hand[1], nil, nil, G.playing_card)
+                    _card:add_to_deck()
+                    G.deck.config.card_limit = G.deck.config.card_limit + 1
+                    table.insert(G.playing_cards, _card)
+                    G.hand:emplace(_card)
+                    _card:start_materialize(nil, _first_dissolve)
+                    _first_dissolve = true
+                    new_cards[#new_cards + 1] = _card
+                end
+                for i = 1, card.ability.extra.cards do
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    local _card = copy_card(context.full_hand[2], nil, nil, G.playing_card)
+                    _card:add_to_deck()
+                    G.deck.config.card_limit = G.deck.config.card_limit + 1
+                    table.insert(G.playing_cards, _card)
+                    G.hand:emplace(_card)
+                    _card:start_materialize(nil, _first_dissolve)
+                    _first_dissolve = true
+                    new_cards[#new_cards + 1] = _card
+                end
+                SMODS.calculate_context({ playing_card_added = true, cards = new_cards })
+                return true
+            end
+            }))
+        end
+    end
+}

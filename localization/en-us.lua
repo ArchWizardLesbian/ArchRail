@@ -182,13 +182,23 @@ return {
                          "{C:inactive}(Misprint + Misprint){}"
                 }
             },
-             j_arch_scholarship = {
+            j_arch_scholarship = {
                 name = 'Scholarship',
                 text = { "When round begins,",
                          "add an {C:attention}Ace{} with a random",
                          "{C:attention}suit{} and a random",
                          "{C:attention}seal{} to your hand",
                          "{C:inactive}(Scholar + Certificate){}"
+                }
+            },
+            j_arch_rna = {
+                name = 'RNA',
+                text = {
+                    "If {C:attention}first hand{} of round",
+                    "has exactly {C:attention}2{} cards, add #1#",
+                    "permanent copy of each to deck",
+                    "and draw them to {C:attention}hand",
+                    "{C:inactive}(Quartz + DNA){}"
                 }
             },
             j_arch_ametr = { --2 fusions so far
