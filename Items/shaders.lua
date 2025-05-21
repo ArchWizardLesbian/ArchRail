@@ -22,7 +22,7 @@ SMODS.Edition({
     extra_cost = 5,
     sound = { sound = "polychrome1", per = 1.2, vol = 0.7 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.edition.card_limit, card.edition.x_mult } }
+        return { vars = { card.edition.mult } }
     end,
     get_weight = function(self)
         return (G.GAME.edition_rate - 1) * G.P_CENTERS["e_negative"].weight + G.GAME.edition_rate * self.weight
@@ -30,7 +30,7 @@ SMODS.Edition({
     calculate = function(self, card, context)
         if context.post_joker or (context.main_scoring and context.cardarea == G.play) then
             return {
-                x_mult = card.edition.x_mult
+                mult = card.edition.mult
             }
         end
     end
@@ -54,7 +54,7 @@ SMODS.Edition({
     extra_cost = 5,
     sound = { sound = "polychrome1", per = 1.2, vol = 0.7 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.edition.card_limit, card.edition.x_mult } }
+        return { vars = { card.edition.x_mult } }
     end,
     get_weight = function(self)
         return (G.GAME.edition_rate - 1) * G.P_CENTERS["e_negative"].weight + G.GAME.edition_rate * self.weight
@@ -86,7 +86,7 @@ SMODS.Edition({
     extra_cost = 5,
     sound = { sound = "polychrome1", per = 1.2, vol = 0.7 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.edition.card_limit, card.edition.chips } }
+        return { vars = { card.edition.card_limit } }
     end,
     get_weight = function(self)
         return (G.GAME.edition_rate - 1) * G.P_CENTERS["e_negative"].weight + G.GAME.edition_rate * self.weight
@@ -111,7 +111,7 @@ SMODS.Edition({
     extra_cost = 5,
     sound = { sound = "polychrome1", per = 1.2, vol = 0.7 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.edition.card_limit, card.edition.chips } }
+        return { vars = { card.edition.chips } }
     end,
     get_weight = function(self)
         return (G.GAME.edition_rate - 1) * G.P_CENTERS["e_negative"].weight + G.GAME.edition_rate * self.weight
