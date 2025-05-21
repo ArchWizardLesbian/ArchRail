@@ -773,7 +773,7 @@ SMODS.Joker({
 })
 
 
-FusionJokers.fusions:add_fusion("j_dna", nil, false, "j_arch_quartz", nil, false, "j_arch_frowny_face", 12)
+FusionJokers.fusions:add_fusion("j_dna", nil, false, "j_arch_quartz", nil, false, "j_arch_rna", 14)
 SMODS.Joker {
     key = "rna",
     blueprint_compat = true,
@@ -824,3 +824,19 @@ SMODS.Joker {
         end
     end
 }
+
+--[[ Effect: Upgrade level of last played hand 3-5 times (not sure what balancing is best there for number of upgrades yet)
+FusionJokers.fusions:add_fusion("j_dusk", nil, false, "j_arch_moonstone", nil, false, "j_arch_twilight", 8)
+SMODS.Joker {
+    key = "twilight",
+    blueprint_compat = true,
+    atlas = "joke",
+	pos = { x = 0, y = 3 },
+	rarity = "fuse_fusion",
+    cost = 8,
+    config = { extra = { cards = 1 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.cards } }
+    end,
+}
+]]
