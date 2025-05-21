@@ -99,7 +99,7 @@ SMODS.Edition({
         name = "Phosphorescent",
         label = "Phosphorescent",
         text = { -- True effect to be implemented = something something money?
-            "{C:chips}+#2#{} Chips"
+            "{C:chips}+#1#{} Chips"
         }
     },
     discovered = true,
