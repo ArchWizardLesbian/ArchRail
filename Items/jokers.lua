@@ -826,7 +826,6 @@ SMODS.Joker {
 }
 
 
---Effect: Upgrade level of last played hand 3-5 times (not sure what balancing is best there for number of upgrades yet)
 FusionJokers.fusions:add_fusion("j_dusk", nil, false, "j_arch_moonstone", nil, false, "j_arch_twilight", 8)
 SMODS.Joker {
     key = "twilight",
@@ -852,4 +851,32 @@ SMODS.Joker {
     end
 }
 
+-- red herring = not fusion = discarded ace of hearts give +3 discards
 -- forest fire = campfire+ruby = Whenever a card is discarded, destroy it and this joker gains X0.25 mult
+FusionJokers.fusions:add_fusion("j_campfire", nil, false, "j_arch_ruby", nil, false, "j_arch_forefire", 8)
+SMODS.Joker {
+    key = "forefire",
+    blueprint_compat = true,
+    atlas = "joke",
+	pos = { x = 0, y = 3 },
+	rarity = "fuse_fusion",
+    cost = 8,
+    config = { extra = { multgain = 0.15, currentmult = 1 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.multgain, card.ability.extra.currentmult } }
+    end,
+    calculate = function (self, card, context)
+        if context.discard and not context.blueprint and #context.full_hand == 1 then
+            local arch = card.ability.extra
+            arch.currentmult = arch.currentmult + arch.multgain
+            return {
+                remove = true
+            }
+        end
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.currentmult
+            }
+        end
+    end
+}

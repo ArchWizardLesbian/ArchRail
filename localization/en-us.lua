@@ -208,6 +208,17 @@ return {
                     "{C:inactive}(Quartz + DNA){}"
                 }
             },
+            j_arch_forefire = {
+                name = 'Forest Fire',
+                text = {
+                    "If discarded hand has",
+                    "exactly {C:attention}1{} card, this",
+                    "Joker gains {X:mult,C:white}X#1#{} Mult and",
+                    "discarded card is destroyed",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult){}",
+                    "{C:inactive}(Ruby + Campfire){}"
+                }
+            },
             j_arch_ametr = { --2 fusions so far
                 name = 'Ametrine',
                 text = { "{C:mult}+#1#{} Mult",
@@ -272,7 +283,7 @@ return {
                     "{C:spectral,E:1}Fusion Material{}"
                 },
             },
-            j_arch_ruby = { --0 fusions so far
+            j_arch_ruby = { --1 fusions so far
                 name = "Ruby",
                 text = {
                     "If {C:attention}first discard{} of round",
