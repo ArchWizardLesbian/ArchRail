@@ -615,7 +615,7 @@ SMODS.Joker {
     rarity = "fuse_fusion",
     cost = 12,
     pos = { x = 4, y = 2 },
-    config = { extra = { mult = 4, dollars = 5 } },
+    config = { extra = { mult = 2, dollars = 5 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.dollars, card.ability.extra.mult * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) / card.ability.extra.dollars) } }
     end,
