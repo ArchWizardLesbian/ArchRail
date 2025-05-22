@@ -241,6 +241,27 @@ SMODS.Joker {
 }
 
 
+SMODS.Joker {
+    key = "redherr",
+    blueprint_compat = true,
+    atlas = "joke",
+	pos = { x = 0, y = 3 },
+	rarity = 3,
+    cost = 8,
+    config = { extra = { discards = 1 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.discards } }
+    end,
+    calculate = function (self, card, context)
+        if context.discard and not context.other_card.debuff and context.other_card:get_id() == 14 and context.other_card:is_suit("Hearts") then
+            local arch = card.ability.extra
+            ease_discard(arch.discards)
+            card_eval_status_text(card, 'extra', nil, nil, nil, { message = '+1 Discard', colour = G.C.RED })
+        end
+    end
+}
+
+
 
 FusionJokers.fusions:add_fusion("j_blackboard", nil, false, "j_arch_deadcard", nil, false, "j_arch_todust", 6)
 SMODS.Joker({
@@ -851,8 +872,7 @@ SMODS.Joker {
     end
 }
 
--- red herring = not fusion = discarded ace of hearts give +3 discards
--- forest fire = campfire+ruby = Whenever a card is discarded, destroy it and this joker gains X0.25 mult
+
 FusionJokers.fusions:add_fusion("j_campfire", nil, false, "j_arch_ruby", nil, false, "j_arch_forefire", 8)
 SMODS.Joker {
     key = "forefire",
@@ -880,3 +900,4 @@ SMODS.Joker {
         end
     end
 }
+

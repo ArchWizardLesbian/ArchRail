@@ -41,6 +41,13 @@ return {
                     "{C:spectral}Primers{} are {X:spectral,C:white}X#1#{} more common",
                 },
             },
+            j_arch_redherr = {
+                name = "Red Herring",
+                text = {
+                    "Discarded {C:attention}Aces of{} {C:hearts}Hearts{}",
+                    "give {C:red}+#1#{} discards"
+                }
+            },
             j_arch_todust = {
                 name = 'To Dust',
                 text = { "{C:green}Fixed 75%{} chance to retrigger",
