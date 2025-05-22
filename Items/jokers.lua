@@ -224,7 +224,7 @@ SMODS.Joker {
 SMODS.Joker {
     key = "geologist",
 	atlas = "joke",
-    pos = { x = 0, y = 3 },
+    pos = { x = 0, y = 2 },
     rarity = 2,
     blueprint_compat = true,
     cost = 6,
