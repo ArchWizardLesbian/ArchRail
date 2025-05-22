@@ -479,17 +479,17 @@ SMODS.Joker {
     rarity = "fuse_fusion",
     cost = 12,
     pos = { x = 0, y = 3 },
-    config = { extra = { chips = 2 } },
+    config = { extra = { chips = 1, dollars = 1 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips, card.ability.extra.chips * math.max(0, (G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) } }
+        return { vars = { card.ability.extra.chips, card.ability.extra.dollars, card.ability.extra.chips * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) / card.ability.extra.dollars) } }
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             return {
-                chips = to_number(card.ability.extra.chips * math.max(0, (G.GAME.dollars + (G.GAME.dollar_buffer or 0))))
+                chips = to_number(card.ability.extra.chips * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) / card.ability.extra.dollars))
             }
         end
-    end,
+    end
 }
 
 
@@ -615,7 +615,7 @@ SMODS.Joker {
     rarity = "fuse_fusion",
     cost = 12,
     pos = { x = 4, y = 2 },
-    config = { extra = { mult = 2, dollars = 5 } },
+    config = { extra = { mult = 3, dollars = 5 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.extra.dollars, card.ability.extra.mult * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) / card.ability.extra.dollars) } }
     end,
@@ -851,3 +851,5 @@ SMODS.Joker {
         end
     end
 }
+
+-- forest fire = campfire+ruby = Whenever a card is discarded, destroy it and this joker gains X0.25 mult

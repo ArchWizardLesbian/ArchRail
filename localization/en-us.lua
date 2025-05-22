@@ -134,9 +134,9 @@ return {
                 text = {
                     "Each played card",
                     "gives {C:chips}+#1#{} Chips for",
-                    "each {C:money}$1{} you have",
+                    "each {C:money}$#2#{} you have",
                     "when scored",
-                    "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
+                    "{C:inactive}(Currently {C:chips}+#3#{C:inactive} Chips)",
                     "{C:inactive}(Cobalt + Bull){}"
                 },
             },
