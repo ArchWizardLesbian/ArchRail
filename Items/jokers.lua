@@ -181,7 +181,7 @@ SMODS.Joker({
 SMODS.Joker {
     key = "nickel",
 	atlas = "joke",
-    pos = { x = 0, y = 3 },
+    pos = { x = 1, y = 2 },
     rarity = 1,
     blueprint_compat = true,
     cost = 5,
