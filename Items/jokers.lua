@@ -261,7 +261,17 @@ SMODS.Joker {
     end
 }
 
-
+--[[
+SMODS.Joker {
+    key = "vestus",
+    blueprint_compat = true,
+    atlas = "joke",
+	pos = { x = 3, y = 3 },
+    soul_pos = { x = 4, y = 3},
+	rarity = 4,
+    cost = 20,
+}
+]]
 
 FusionJokers.fusions:add_fusion("j_blackboard", nil, false, "j_arch_deadcard", nil, false, "j_arch_todust", 6)
 SMODS.Joker({
