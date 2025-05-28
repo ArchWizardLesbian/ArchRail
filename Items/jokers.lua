@@ -7,51 +7,21 @@ SMODS.Joker({
 	config = {
 		extra = {
 			max = 21,
-			min = 3
+			min = 3,
+            max2 = 63,
+			min2 = 9
 		},
 	},
 	unlocked = true,
 	discovered = false,
 	blueprint_compat = true,
-	loc_vars = function(self, info_queue, card)
-		local r_mults = {}
-        for i = card.ability.extra.min, card.ability.extra.max do
-            r_mults[#r_mults + 1] = tostring(i)
-        end
-        local loc_mult = ' ' .. (localize('k_mult')) .. ' '
-        main_start = {
-			{ n = G.UIT.T, config = { text = 'Scored', colour = G.C.UI.TEXT_DARK, scale = 0.32 } },
-			{ n = G.UIT.T, config = { text = ' Wild Cards', colour = G.C.FILTER, scale = 0.32 } },
-			{ n = G.UIT.T, config = { text = ' give', colour = G.C.UI.TEXT_DARK, scale = 0.32 } },
-            { n = G.UIT.T, config = { text = ' +', colour = G.C.MULT, scale = 0.32 } },
-            { n = G.UIT.O, config = { object = DynaText({ string = r_mults, colours = { G.C.RED }, pop_in_rate = 9999999, silent = true, random_element = true, pop_delay = 0.5, scale = 0.32, min_cycle_time = 0 }) } },
-            {
-                n = G.UIT.O,
-                config = {
-                    object = DynaText({
-                        string = {
-                            { string = 'rand()', colour = G.C.JOKER_GREY }, { string = "#@" .. (G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards].base.id or 11) .. (G.deck and G.deck.cards[1] and G.deck.cards[#G.deck.cards].base.suit:sub(1, 1) or 'D'), colour = G.C.RED },
-                            loc_mult, loc_mult, loc_mult, loc_mult, loc_mult, loc_mult, loc_mult, loc_mult, loc_mult,
-                            loc_mult, loc_mult, loc_mult, loc_mult },
-                        colours = { G.C.UI.TEXT_DARK },
-                        pop_in_rate = 9999999,
-                        silent = true,
-                        random_element = true,
-                        pop_delay = 0.2011,
-                        scale = 0.32,
-                        min_cycle_time = 0
-                    })
-                }
-            },
-        }
-        return { main_start = main_start }
-    end,
 	calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play then
 			if context.other_card.ability.effect == "Wild Card" then
 				local arch = card.ability.extra
 				return{
-					mult = pseudorandom('partytime', card.ability.extra.min, card.ability.extra.max)
+					mult = pseudorandom('partytime', card.ability.extra.min, card.ability.extra.max),
+                    chips = pseudorandom('partytime2', card.ability.extra.min2, card.ability.extra.max2)
 				}
 			end
 		end

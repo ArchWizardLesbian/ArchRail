@@ -6,7 +6,9 @@ return {
         Joker={
             j_arch_pink_joker = {
                 name = 'Party Joker',
-                text = { ""
+                text = { "Played {C:attention}Wild Cards{} give",
+                         "{C:mult}+?{} Mult and {C:chips}+?{} Chips",
+                         "when scored"
                 }
             },
             j_arch_brown_joker = {
