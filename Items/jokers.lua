@@ -151,7 +151,7 @@ SMODS.Joker({
 	end
 })
 
-
+--[[
 SMODS.Joker({
 	key = "deadcard",
 	atlas = "joke",
@@ -176,7 +176,7 @@ SMODS.Joker({
 		end
     end
 })
-
+]]
 
 SMODS.Joker {
     key = "nickel",
@@ -245,7 +245,7 @@ SMODS.Joker {
     key = "redherr",
     blueprint_compat = true,
     atlas = "joke",
-	pos = { x = 0, y = 3 },
+	pos = { x = 0, y = 4 },
 	rarity = 3,
     cost = 8,
     config = { extra = { discards = 1 } },
@@ -271,7 +271,7 @@ SMODS.Joker {
 	rarity = 4,
     cost = 20,
 }
-]]
+
 
 FusionJokers.fusions:add_fusion("j_blackboard", nil, false, "j_arch_deadcard", nil, false, "j_arch_todust", 6)
 SMODS.Joker({
@@ -306,7 +306,7 @@ SMODS.Joker({
 })
 
 
---[[
+
 FusionJokers.fusions:add_fusion("j_glass_joker", nil, false, "j_arch_pink_joker", nil, false, "j_arch_prisma", 7)
 SMODS.Joker({
     key = "prisma",
@@ -730,7 +730,7 @@ SMODS.Joker({
 	end
 })
 
-
+--[[
 FusionJokers.fusions:add_fusion("j_misprint", nil, false, "j_misprint", nil, false, "j_arch_joker_undefined_404", 13)
 SMODS.Joker({
 	key = "joker_undefined_404",
@@ -756,7 +756,7 @@ SMODS.Joker({
         end
     end
 })
-
+]]
 
 FusionJokers.fusions:add_fusion("j_scholar", nil, false, "j_certificate", nil, false, "j_arch_scholarship", 8)
 SMODS.Joker({
