@@ -472,20 +472,20 @@ SMODS.Joker({
 })
 
 
-FusionJokers.fusions:add_fusion("j_bull", nil, false, "j_arch_cobalt", nil, false, "j_arch_minotaur", 12)
+FusionJokers.fusions:add_fusion("j_bull", nil, false, "j_greedy_joker", nil, false, "j_arch_minotaur", 12)
 SMODS.Joker {
     key = "minotaur",
 	atlas = "joke",
     blueprint_compat = true,
     rarity = "fuse_fusion",
     cost = 12,
-    pos = { x = 0, y = 3 },
-    config = { extra = { chips = 1, dollars = 1 } },
+    pos = { x = 1, y = 4 },
+    config = { extra = { chips = 2, dollars = 1 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.extra.dollars, card.ability.extra.chips * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) / card.ability.extra.dollars) } }
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
+        if context.individual and context.cardarea == G.play and context.other_card:is_suit("Diamonds") then
             return {
                 chips = to_number(card.ability.extra.chips * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0)) / card.ability.extra.dollars))
             }

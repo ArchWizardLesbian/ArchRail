@@ -141,12 +141,12 @@ return {
             j_arch_minotaur = {
                 name = "Minotaur",
                 text = {
-                    "Each played card",
+                    "Each played {C:diamonds}Diamonds{} card",
                     "gives {C:chips}+#1#{} Chips for",
                     "each {C:money}$#2#{} you have",
                     "when scored",
                     "{C:inactive}(Currently {C:chips}+#3#{C:inactive} Chips)",
-                    "{C:inactive}(Cobalt + Bull){}"
+                    "{C:inactive}(Greedy Joker + Bull){}"
                 },
             },
             j_arch_ecstatic_face = {
