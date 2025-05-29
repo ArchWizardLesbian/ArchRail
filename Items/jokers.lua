@@ -83,12 +83,13 @@ SMODS.Joker({
 	key = "pretzel",
 	atlas = "joke",
 	pos = { x = 2, y = 0 },
-	rarity = 2,
-	cost = 3,
+	rarity = 1,
+	cost = 1,
 	allow_duplicates = true,
 	config = {
 		extra = {
-			odds = 8
+			odds = 4,
+            mult = 8
 		},
 	},
 	unlocked = true,
@@ -98,27 +99,22 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local arch = card.ability.extra
 		return {
-			vars = { (G.GAME and G.GAME.probabilities.normal or 1), arch.odds },
+			vars = { (G.GAME and G.GAME.probabilities.normal or 1), arch.odds, arch.mult },
 		}
 	end,
 	calculate = function(self, card, context)
-        if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            if pseudorandom('arch_pretz') < G.GAME.probabilities.normal / card.ability.extra.odds then
-				card:remove()
-				card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Ate!', colour = G.C.FILTER })
+        if context.joker_main and next(context.poker_hands["Two Pair"]) then
+            return {
+                mult = card.ability.extra.mult
+            }
+        elseif context.end_of_round and pseudorandom('archpretz') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            return {
+                card:remove(),
+				card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Ate!', colour = G.C.MULT }),
 				card = nil
-			else
-				play_sound('holo1', 1.2 + math.random() * 0.1, 0.4)
-				card.T.r = -0.2
-                card:juice_up(0.3, 0.4)
-				card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Bite!', colour = G.C.SECONDARY_SET.Planet })
-				return {
-					level_up = true,
-  					level_up_hand = "Two Pair"
-				}
-			end
-		end
-	end
+            }
+        end
+    end
 })
 
 --[[
