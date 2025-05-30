@@ -59,6 +59,14 @@ return {
                     "Gains {C:mult}+#2#{} Mult when a {C:hearts}Hearts{} card is destroyed"
                 }
             },
+            j_arch_esper = {
+                name = "Esper",
+                text = {
+                    "{C:dark_edition}Foil{}, {C:dark_edition}Holographic{}, and",
+                    "{C:dark_edition}Polychrome{} cards",
+                    "appear {C:attention}#1#X{} more often",
+                }
+            },
             j_arch_todust = {
                 name = 'To Dust',
                 text = { "{C:green}Fixed 75%{} chance to retrigger",

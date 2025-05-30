@@ -1,3 +1,25 @@
+SMODS.Voucher:take_ownership('v_hone', {
+  redeem = function(self, card)
+    G.E_MANAGER:add_event(Event({
+            func = function()
+                G.GAME.edition_rate = G.GAME.edition_rate * card.ability.extra
+                return true
+            end
+        }))
+  end
+})
+
+SMODS.Voucher:take_ownership('v_glow_up', {
+  redeem = function(self, card)
+    G.E_MANAGER:add_event(Event({
+            func = function()
+                G.GAME.edition_rate = G.GAME.edition_rate * (card.ability.extra / 2)
+                return true
+            end
+        }))
+  end
+})
+
 SMODS.Voucher {
     key = 'alchemy',
     atlas = "vouch",

@@ -151,7 +151,7 @@ SMODS.Joker {
     rarity = 1,
     blueprint_compat = true,
     cost = 5,
-    config = { extra = { dollars = 5 }, },
+    config = { extra = { dollars = 8 }, },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.dollars } }
     end,
@@ -254,6 +254,35 @@ SMODS.Joker {
                 mult = G.GAME.current_round.discards_left * card.ability.extra.mult
             }
         end
+    end
+}
+
+SMODS.Joker {
+    key = "esper",
+    atlas = "joke",
+	pos = { x = 3, y = 4 },
+	rarity = 3,
+    cost = 8,
+    blueprint_compat = false,
+    config = { extra = { ed_rate = 3 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.ed_rate } }
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                G.GAME.edition_rate = G.GAME.edition_rate * card.ability.extra.ed_rate
+                return true
+            end
+        }))
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                G.GAME.edition_rate = G.GAME.edition_rate / card.ability.extra.ed_rate
+                return true
+            end
+        }))
     end
 }
 
