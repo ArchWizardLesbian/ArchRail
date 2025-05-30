@@ -227,6 +227,36 @@ SMODS.Joker {
     end
 }
 
+SMODS.Joker {
+    key = "lovesick",
+    blueprint_compat = true,
+    rarity = 3,
+    cost = 8,
+    atlas = "joke",
+    pos = { x = 2, y = 4 },
+    config = { extra = { mult = 3, multgain = 2 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.extra.multgain } }
+    end,
+    calculate = function(self, card, context)
+        if context.remove_playing_cards and not context.blueprint then
+            local heartskilled = 0
+            for _, removed_card in ipairs(context.removed) do
+                if removed_card:is_suit("Hearts") then heartskilled = heartskilled + 1 end
+            end
+            if heartskilled > 0 then
+                card.ability.extra.mult = card.ability.extra.mult + heartskilled * card.ability.extra.multgain
+                return { message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } } }
+            end
+        end
+        if context.joker_main then
+            return {
+                mult = G.GAME.current_round.discards_left * card.ability.extra.mult
+            }
+        end
+    end
+}
+
 --[[
 SMODS.Joker {
     key = "vestus",

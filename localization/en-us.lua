@@ -52,6 +52,13 @@ return {
                     "give {C:red}+#1#{} discards"
                 }
             },
+            j_arch_lovesick = {
+                name = "Lovesick Joker",
+                text = {
+                    "{C:mult}+#1#{} Mult per remaining Discard",
+                    "Gains {C:mult}+#2#{} Mult when a {C:hearts}Hearts{} card is destroyed"
+                }
+            },
             j_arch_todust = {
                 name = 'To Dust',
                 text = { "{C:green}Fixed 75%{} chance to retrigger",
