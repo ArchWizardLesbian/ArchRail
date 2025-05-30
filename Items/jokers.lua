@@ -117,7 +117,7 @@ SMODS.Joker({
     end
 })
 
---[[
+
 SMODS.Joker({
 	key = "deadcard",
 	atlas = "joke",
@@ -142,7 +142,7 @@ SMODS.Joker({
 		end
     end
 })
-]]
+
 
 SMODS.Joker {
     key = "nickel",

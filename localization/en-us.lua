@@ -26,7 +26,7 @@ return {
                 }
             },
             j_arch_deadcard = {
-                name = 'Faded Memory',
+                name = 'Seismograph',
                 text = { "{C:green}Fixed 50%{} chance to retrigger",
                          "{C:attention}held in hand{} effects"
                 }
