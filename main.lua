@@ -7,9 +7,9 @@ ARCH.compat = {
 
 SMODS.load_file("Items/func.lua")()
 SMODS.load_file("Items/jokers.lua")()
-SMODS.load_file("Items/voucher.lua")()
-SMODS.load_file("Items/primer.lua")()
-SMODS.load_file("Items/shaders.lua")()
+--SMODS.load_file("Items/voucher.lua")()
+--SMODS.load_file("Items/primer.lua")()
+--SMODS.load_file("Items/shaders.lua")()
 
 if ARCH.compat.partners then
 SMODS.load_file("Items/partner.lua")()

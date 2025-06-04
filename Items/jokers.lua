@@ -186,7 +186,7 @@ SMODS.Joker {
     end
     end,
 }
-
+--[[
 SMODS.Joker {
     key = "geologist",
 	atlas = "joke",
@@ -205,7 +205,7 @@ SMODS.Joker {
         G.GAME['arch_primer_mod'] = ((G.GAME['arch_primer_mod'] or 1)/card.ability.extra.rarmult) or G.GAME['arch_primer_mod']
     end,
 }
-
+]]
 
 SMODS.Joker {
     key = "redherr",
@@ -419,7 +419,7 @@ SMODS.Joker({
     -- effect = +1 Odds per $10(?) you have
 
 })
-]]
+
 
 
 FusionJokers.fusions:add_fusion("j_fortune_teller", nil, false, "j_arch_ametr", nil, false, "j_arch_pyromancer", 8)
@@ -525,7 +525,7 @@ SMODS.Joker({
         end
     end
 })
-
+]]
 
 FusionJokers.fusions:add_fusion("j_bull", nil, false, "j_greedy_joker", nil, false, "j_arch_minotaur", 12)
 SMODS.Joker {
@@ -549,7 +549,7 @@ SMODS.Joker {
 }
 
 
-
+--[[
 FusionJokers.fusions:add_fusion("j_greedy_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_charitous_joker", 3)
 SMODS.Joker {
     key = "charitous_joker",
@@ -709,7 +709,7 @@ SMODS.Joker {
         end
     end
 }
-
+]]
 
 FusionJokers.fusions:add_fusion("j_arch_brown_joker", nil, false, "j_arch_pretzel", nil, false, "j_arch_choco_pretzel", 12)
 SMODS.Joker({
@@ -828,7 +828,7 @@ SMODS.Joker({
     end,
 })
 
-
+--[[
 FusionJokers.fusions:add_fusion("j_dna", nil, false, "j_arch_quartz", nil, false, "j_arch_rna", 14)
 SMODS.Joker {
     key = "rna",
@@ -936,3 +936,4 @@ SMODS.Joker {
     end
 }
 
+]]
