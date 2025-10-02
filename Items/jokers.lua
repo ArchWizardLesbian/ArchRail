@@ -148,10 +148,11 @@ SMODS.Joker {
     key = "nickel",
 	atlas = "joke",
     pos = { x = 1, y = 2 },
+    pixel_size = { h = 36, w = 35 },
     rarity = 1,
     blueprint_compat = true,
     cost = 5,
-    config = { extra = { dollars = 8 }, },
+    config = { extra = { dollars = 5 }, },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.dollars } }
     end,
