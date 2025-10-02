@@ -550,8 +550,8 @@ SMODS.Joker {
 }
 
 
---[[
-FusionJokers.fusions:add_fusion("j_greedy_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_charitous_joker", 3)
+
+FusionJokers.fusions:add_fusion("j_greedy_joker", nil, false, "j_arch_frowny_face", nil, false, "j_arch_charitous_joker", 3)
 SMODS.Joker {
     key = "charitous_joker",
 	atlas = "joke",
@@ -574,7 +574,7 @@ SMODS.Joker {
 }
 
 
-FusionJokers.fusions:add_fusion("j_lusty_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_chaste_joker", 3)
+FusionJokers.fusions:add_fusion("j_lusty_joker", nil, false, "j_arch_frowny_face", nil, false, "j_arch_chaste_joker", 3)
 SMODS.Joker {
     key = "chaste_joker",
 	atlas = "joke",
@@ -597,7 +597,7 @@ SMODS.Joker {
 }
 
 
-FusionJokers.fusions:add_fusion("j_wrathful_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_patient_joker", 3)
+FusionJokers.fusions:add_fusion("j_wrathful_joker", nil, false, "j_arch_frowny_face", nil, false, "j_arch_patient_joker", 3)
 SMODS.Joker {
     key = "patient_joker",
 	atlas = "joke",
@@ -620,7 +620,7 @@ SMODS.Joker {
 }
 
 
-FusionJokers.fusions:add_fusion("j_gluttenous_joker", nil, false, "j_arch_sapphire", nil, false, "j_arch_temperate_joker", 3)
+FusionJokers.fusions:add_fusion("j_gluttenous_joker", nil, false, "j_arch_frowny_face", nil, false, "j_arch_temperate_joker", 3)
 SMODS.Joker {
     key = "temperate_joker",
 	atlas = "joke",
@@ -642,8 +642,8 @@ SMODS.Joker {
     end
 }
 
-
-FusionJokers.fusions:add_fusion("j_smiley", nil, false, "j_arch_ametr", nil, false, "j_arch_neutral_face", 4)
+--[[
+FusionJokers.fusions:add_fusion("j_smiley", nil, false, "j_arch_frowny_face", nil, false, "j_arch_neutral_face", 4)
 SMODS.Joker {
     key = "neutral_face",
 	atlas = "joke",
@@ -685,32 +685,28 @@ SMODS.Joker {
     end
 }
 
-FusionJokers.fusions:add_fusion("j_arch_neutral_face", nil, false, "j_arch_cobalt", nil, false, "j_arch_frowny_face", 12)
+]]
 SMODS.Joker {
     key = "frowny_face",
 	atlas = "joke",
     blueprint_compat = true,
-    rarity = "fuse_fusion",
-    cost = 12,
+    rarity = 1,
+    cost = 4,
     pos = { x = 2, y = 2 },
-    config = { extra = { xmult = 1.25, retriggers = 2 } },
+    config = { extra = { chips = 25 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.xmult } }
+        return { vars = { card.ability.extra.chips } }
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:is_face() then
+        if context.individual and context.cardarea == G.hand and not context.end_of_round and
+            context.other_card:is_face() then
             return {
-                xmult = card.ability.extra.xmult
-            }
-        end
-        if context.repetition and context.cardarea == G.play and context.other_card:is_face() then
-            return {
-                repetitions = card.ability.extra.retriggers
+                chips = card.ability.extra.chips
             }
         end
     end
 }
-]]
+
 
 FusionJokers.fusions:add_fusion("j_arch_brown_joker", nil, false, "j_arch_pretzel", nil, false, "j_arch_choco_pretzel", 12)
 SMODS.Joker({

@@ -125,7 +125,7 @@ return {
                     "Each {C:diamonds}Diamonds{}",
                     "held in hand",
                     "gives {C:chips}+#1#{} Chips",
-                    "{C:inactive}(Sapphire + Greedy Joker){}"
+                    "{C:inactive}(Frowny Face + Greedy Joker){}"
                 },
             },
             j_arch_chaste_joker = {
@@ -134,7 +134,7 @@ return {
                     "Each {C:hearts}Hearts{}",
                     "held in hand",
                     "gives {C:chips}+#1#{} Chips",
-                    "{C:inactive}(Sapphire + Lusty Joker){}"
+                    "{C:inactive}(Frowny Face + Lusty Joker){}"
                 },
             },
             j_arch_patient_joker = {
@@ -143,7 +143,7 @@ return {
                     "Each {C:spades}Spades{}",
                     "held in hand",
                     "gives {C:chips}+#1#{} Chips",
-                    "{C:inactive}(Sapphire + Wrathful Joker){}"
+                    "{C:inactive}(Frowny Face + Wrathful Joker){}"
                 },
             },
             j_arch_temperate_joker = {
@@ -152,7 +152,7 @@ return {
                     "Each {C:clubs}Clubs{}",
                     "held in hand",
                     "gives {C:chips}+#1#{} Chips",
-                    "{C:inactive}(Sapphire + Gluttonous Joker){}"
+                    "{C:inactive}(Frowny Face + Gluttonous Joker){}"
                 },
             },
             j_arch_minotaur = {
@@ -178,20 +178,19 @@ return {
             j_arch_neutral_face = {
                 name = "Neutral Face",
                 text = {
-                    "Played {C:attention}face{} cards",
-                    "give {X:mult,C:white}x#1#{} Mult",
-                    "when scored",
-                    "{C:inactive}(Ametrine + Smiley Face){}"
+                    "Each {C:attention}face{} card",
+                    "held in hand or",
+                    "played and scoring",
+                    "gives {C:mult}+#1#{} Mult",
+                    "{C:inactive}(Frowny Face + Smiley Face){}"
                 },
             },
             j_arch_frowny_face = {
                 name = "Frowny Face",
                 text = {
-                    "Played {C:attention}face{} cards",
-                    "are retriggered {C:attention}2{} times and",
-                    "give {X:mult,C:white}X#1#{} Mult",
-                    "when scored",
-                    "{C:inactive}(Cobalt + Neutral Face){}"
+                    "Each {C:attention}face{} card",
+                    "held in hand",
+                    "gives {C:chips}+#1#{} Chips"
                 },
             },
             j_arch_choco_pretz = {
