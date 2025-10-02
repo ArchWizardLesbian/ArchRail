@@ -297,7 +297,7 @@ SMODS.Joker {
     cost = 20,
 }
 
-
+]]
 FusionJokers.fusions:add_fusion("j_blackboard", nil, false, "j_arch_deadcard", nil, false, "j_arch_todust", 6)
 SMODS.Joker({
     key = "todust",
@@ -329,7 +329,7 @@ SMODS.Joker({
   	  	end
 	end
 })
-
+--[[
 
 
 FusionJokers.fusions:add_fusion("j_glass_joker", nil, false, "j_arch_pink_joker", nil, false, "j_arch_prisma", 7)
@@ -421,8 +421,8 @@ SMODS.Joker({
 })
 
 
-
-FusionJokers.fusions:add_fusion("j_fortune_teller", nil, false, "j_arch_ametr", nil, false, "j_arch_pyromancer", 8)
+]]
+FusionJokers.fusions:add_fusion("j_fortune_teller", nil, false, "j_campfire", nil, false, "j_arch_pyromancer", 8)
 SMODS.Joker({
     key = "pyromancer",
     atlas = "joke",
@@ -454,7 +454,7 @@ SMODS.Joker({
 })
 
 
-FusionJokers.fusions:add_fusion("j_joker_stencil", nil, false, "j_arch_obsid", nil, false, "j_arch_inked", 10)
+FusionJokers.fusions:add_fusion("j_joker_stencil", nil, false, "j_riff_raff", nil, false, "j_arch_inked", 10)
 SMODS.Joker({
     key = "inked",
     atlas = "joke",
@@ -484,7 +484,7 @@ SMODS.Joker({
         end
     end,
 })
-
+--[[
 
 FusionJokers.fusions:add_fusion("j_photograph", nil, false, "j_arch_citrine", nil, false, "j_arch_model", 8)
 SMODS.Joker({

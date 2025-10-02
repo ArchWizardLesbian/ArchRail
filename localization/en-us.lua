@@ -36,7 +36,7 @@ return {
                 text = {
                     "Each {C:gold}Gold Sealed{} card",
                     "held in hand at end",
-                    "of round earns {C:money}+$#1#{}",
+                    "of round earns {C:money}$#1#{}",
                 },
             },
             j_arch_geologist = {
@@ -68,11 +68,11 @@ return {
                 }
             },
             j_arch_todust = {
-                name = 'To Dust',
+                name = 'Etch-A-Joker',
                 text = { "{C:green}Fixed 75%{} chance to retrigger",
                          "{C:attention}held in hand{} effects of",
                          "{C:spades}Spades{} and {C:clubs}Clubs{} twice",
-                         "{C:inactive}(Faded Memory + Blackboard){}"
+                         "{C:inactive}(Seismograph + Blackboard){}"
                 }
             },
            j_arch_prisma = {
@@ -97,7 +97,7 @@ return {
                     "{X:mult,C:white}X#1#{} Mult per {C:purple}Tarot{}",
                     "card used this run",
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive})",
-                    "{C:inactive}(Ametrine + Fortune Teller){}"
+                    "{C:inactive}(Campfire + Fortune Teller){}"
                 },
             },
             j_arch_inked = {
@@ -107,7 +107,7 @@ return {
                     "each {C:attention}Joker{} slot when",
                     "a {C:purple}Tarot{} card is used",
                     "{C:inactive}(Currently {X:red,C:white} X#1# {C:inactive})",
-                    "{C:inactive}(Obsidian + Joker Stencil){}"
+                    "{C:inactive}(Riff-Raff + Joker Stencil){}"
                 },
             },
             j_arch_model = {
