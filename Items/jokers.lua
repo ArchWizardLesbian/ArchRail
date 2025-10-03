@@ -780,6 +780,24 @@ SMODS.Joker({
 })
 ]]
 
+SMODS.Joker {
+    key = "bozo_isaac",
+	atlas = "joke",
+    pos = { x = 4, y = 4 },
+    rarity = 2,
+    blueprint_compat = true,
+    cost = 4,
+    config = { extra = { odds = 2 }, },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds }, }
+    end,
+    calculate = function(self, card, context)
+        if context.starting_shop and pseudorandom('archbozo') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            SMODS.add_booster_to_shop("p_arcana_mega_1")
+        end
+    end
+}
+
 FusionJokers.fusions:add_fusion("j_scholar", nil, false, "j_certificate", nil, false, "j_arch_scholarship", 8)
 SMODS.Joker({
 	key = "scholarship",

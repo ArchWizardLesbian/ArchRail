@@ -25,6 +25,13 @@ return {
                          "be destroyed at end of blind"
                 }
             },
+            j_arch_bozo_isaac = {
+                name = 'Bozo',
+                text = { "{C:green}#1# in #2#{} chance to",
+                         "add a {C:tarot}Mega Arcana Pack{}",
+                         "at start of shop"
+                }
+            },
             j_arch_deadcard = {
                 name = 'Seismograph',
                 text = { "{C:green}Fixed 50%{} chance to retrigger",
