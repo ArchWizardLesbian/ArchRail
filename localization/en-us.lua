@@ -27,9 +27,8 @@ return {
             },
             j_arch_bozo_isaac = {
                 name = 'Bozo',
-                text = { "{C:green}#1# in #2#{} chance to",
-                         "add a {C:tarot}Mega Arcana Pack{}",
-                         "at start of shop"
+                text = { "{C:green}#1# in #2#{} chance to add",
+                         "a {C:tarot}Fool{} card to shops"
                 }
             },
             j_arch_deadcard = {

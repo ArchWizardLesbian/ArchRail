@@ -793,7 +793,13 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.starting_shop and pseudorandom('archbozo') < G.GAME.probabilities.normal / card.ability.extra.odds then
-            SMODS.add_booster_to_shop("p_arcana_mega_1")
+            --SMODS.add_booster_to_shop("p_arcana_mega_1")
+            local card = SMODS.add_card {
+                set = "Tarot",
+                area = G.shop_jokers,
+                key = "c_fool"
+            }
+            create_shop_card_ui(card, 'Tarot', G.shop_jokers)
         end
     end
 }
