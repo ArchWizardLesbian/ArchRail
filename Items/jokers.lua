@@ -1004,7 +1004,15 @@ SMODS.Joker {
             }
         end
         end
-    end
+    end,
+    in_pool = function(self, args) --equivalent to `enhancement_gate = 'm_mult'`
+        for _, playing_card in ipairs(G.playing_cards or {}) do
+            if SMODS.has_enhancement(playing_card, 'm_mult') then
+                return true
+            end
+        end
+        return false
+    end,
 }
 
 SMODS.Joker {
@@ -1026,7 +1034,15 @@ SMODS.Joker {
             }
         end
         end
-    end
+    end,
+    in_pool = function(self, args) --equivalent to `enhancement_gate = 'm_mult'`
+        for _, playing_card in ipairs(G.playing_cards or {}) do
+            if SMODS.has_enhancement(playing_card, 'm_mult') then
+                return true
+            end
+        end
+        return false
+    end,
 }
 
 -- First we save the original function to a local variable
