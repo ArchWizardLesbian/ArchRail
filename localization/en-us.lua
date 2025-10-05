@@ -223,7 +223,7 @@ return {
                 name = 'Twilight',
                 text = { "{C:attention}+#1#{} Levels to",
                          "final played hand",
-                         "{C:inactive}(Moonstone + Dusk){}"
+                         "{C:inactive}(Space Joker + Dusk){}"
                 }
             },
             j_arch_scholarship = {
@@ -242,7 +242,7 @@ return {
                     "has exactly {C:attention}2{} cards, add #1#",
                     "permanent copy of each to deck",
                     "and draw them to {C:attention}hand",
-                    "{C:inactive}(Quartz + DNA){}"
+                    "{C:inactive}(Half Joker + DNA){}"
                 }
             },
             j_arch_forefire = {
@@ -253,7 +253,7 @@ return {
                     "Joker gains {X:mult,C:white}X#1#{} Mult and",
                     "discarded card is destroyed",
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult){}",
-                    "{C:inactive}(Ruby + Campfire){}"
+                    "{C:inactive}(Trading Card + Campfire){}"
                 }
             },
             j_arch_ametr = { --2 fusions so far

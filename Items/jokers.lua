@@ -877,8 +877,8 @@ SMODS.Joker({
     end,
 })
 
---[[
-FusionJokers.fusions:add_fusion("j_dna", nil, false, "j_arch_quartz", nil, false, "j_arch_rna", 14)
+
+FusionJokers.fusions:add_fusion("j_dna", nil, false, "j_half", nil, false, "j_arch_rna", 14)
 SMODS.Joker {
     key = "rna",
     blueprint_compat = true,
@@ -931,7 +931,7 @@ SMODS.Joker {
 }
 
 
-FusionJokers.fusions:add_fusion("j_dusk", nil, false, "j_arch_moonstone", nil, false, "j_arch_twilight", 8)
+FusionJokers.fusions:add_fusion("j_dusk", nil, false, "j_space", nil, false, "j_arch_twilight", 8)
 SMODS.Joker {
     key = "twilight",
     blueprint_compat = true,
@@ -939,7 +939,7 @@ SMODS.Joker {
 	pos = { x = 0, y = 3 },
 	rarity = "fuse_fusion",
     cost = 8,
-    config = { extra = { levels = 5 } },
+    config = { extra = { levels = 2 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.levels } }
     end,
@@ -957,7 +957,7 @@ SMODS.Joker {
 }
 
 
-FusionJokers.fusions:add_fusion("j_campfire", nil, false, "j_arch_ruby", nil, false, "j_arch_forefire", 8)
+FusionJokers.fusions:add_fusion("j_campfire", nil, false, "j_trading", nil, false, "j_arch_forefire", 8)
 SMODS.Joker {
     key = "forefire",
     blueprint_compat = true,
@@ -965,7 +965,7 @@ SMODS.Joker {
 	pos = { x = 0, y = 3 },
 	rarity = "fuse_fusion",
     cost = 8,
-    config = { extra = { multgain = 0.15, currentmult = 1 } },
+    config = { extra = { multgain = 0.05, currentmult = 1.5 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.multgain, card.ability.extra.currentmult } }
     end,
@@ -984,5 +984,3 @@ SMODS.Joker {
         end
     end
 }
-
-]]
