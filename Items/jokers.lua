@@ -804,6 +804,34 @@ SMODS.Joker {
     end
 }
 
+SMODS.Joker {
+    key = "hornet_silked",
+	atlas = "joke",
+    pos = { x = 5, y = 4 },
+    rarity = 3,
+    blueprint_compat = true,
+    cost = 4,
+    config = { extra = { xmult = 2, hands = 1 }, },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult, card.ability.extra.hands }, }
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            return {
+                xmult = G.GAME.round_resets.hands * card.ability.extra.xmult
+            }
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        G.GAME.round_resets.hands = G.GAME.round_resets.hands - card.ability.extra.hands
+        ease_hands_played(-card.ability.extra.hands)
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hands
+        ease_hands_played(card.ability.extra.hands)
+    end
+}
+
 FusionJokers.fusions:add_fusion("j_scholar", nil, false, "j_certificate", nil, false, "j_arch_scholarship", 8)
 SMODS.Joker({
 	key = "scholarship",

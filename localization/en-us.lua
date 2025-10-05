@@ -31,6 +31,12 @@ return {
                          "a {C:tarot}Fool{} card to shops"
                 }
             },
+            j_arch_hornet_silked = {
+                name = 'Song of Silk',
+                text = { "{X:mult,C:white}X#1#{} Mult per remaining hand",
+                         "{C:blue}-1{} hand each round"
+                }
+            },
             j_arch_deadcard = {
                 name = 'Seismograph',
                 text = { "{C:green}Fixed 50%{} chance to retrigger",
