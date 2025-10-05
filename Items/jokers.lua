@@ -810,7 +810,7 @@ SMODS.Joker {
     pos = { x = 5, y = 4 },
     rarity = 3,
     blueprint_compat = true,
-    cost = 4,
+    cost = 8,
     config = { extra = { xmult = 2, hands = 1 }, },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, card.ability.extra.hands }, }
@@ -818,7 +818,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.joker_main then
             return {
-                xmult = G.GAME.round_resets.hands * card.ability.extra.xmult
+                xmult = G.GAME.current_round.hands_left * card.ability.extra.xmult
             }
         end
     end,
