@@ -256,6 +256,24 @@ return {
                     "{C:inactive}(Trading Card + Campfire){}"
                 }
             },
+            j_arch_noita_ukko = {
+                name = 'Ukko',
+                text = {
+                    "{C:attention}Mult{} cards count as",
+                    "{C:spades}Spades{} and give",
+                    "{C:chips}+#1#{} chips when",
+                    "played and scored"
+                }
+            },
+            j_arch_noita_ukko_red = {
+                name = 'Stendari',
+                text = {
+                    "{C:attention}Mult{} cards count as",
+                    "{C:hearts}Hearts{} and give",
+                    "{X:mult,C:white}X#1#{} mult when",
+                    "played and scored"
+                }
+            },
             j_arch_ametr = { --2 fusions so far
                 name = 'Ametrine',
                 text = { "{C:mult}+#1#{} Mult",

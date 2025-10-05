@@ -984,3 +984,79 @@ SMODS.Joker {
         end
     end
 }
+
+SMODS.Joker {
+    key = "noita_ukko",
+    blueprint_compat = true,
+    atlas = "joke",
+	pos = { x = 5, y = 5 },
+	rarity = 3,
+    cost = 6,
+    config = { extra = { chips = 40 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.chips } }
+    end,
+    calculate = function (self, card, context)
+        if context.individual and context.cardarea == G.play then
+			if context.other_card.ability.effect == "Mult Card" then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+        end
+    end
+}
+
+SMODS.Joker {
+    key = "noita_ukko_red",
+    blueprint_compat = true,
+    atlas = "joke",
+	pos = { x = 4, y = 5 },
+	rarity = 3,
+    cost = 6,
+    config = { extra = { xmult = 1.2 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.xmult } }
+    end,
+    calculate = function (self, card, context)
+        if context.individual and context.cardarea == G.play then
+			if context.other_card.ability.effect == "Mult Card" then
+            return {
+                xmult = card.ability.extra.xmult
+            }
+        end
+        end
+    end
+}
+
+-- First we save the original function to a local variable
+-- This will also save any other hooks made before
+local card_is_suit_ref = Card.is_suit
+-- Then we make another function with the same parameters as the original
+-- As a reminder, this is equivalent to `function Card.add_to_deck(self, from_debuff)`
+function Card:is_suit(suit, bypass_debuff, flush_calc)
+
+    -- Here we optionally add any code we want to run before the function
+    if SMODS.has_enhancement(self, "m_mult") then
+    if next(SMODS.find_card("j_arch_noita_ukko")) and suit == "Spades" then
+        return true
+    end
+    if next(SMODS.find_card("j_arch_noita_ukko_red")) and suit == "Hearts" then
+        return true
+    end
+    end
+
+    -- We then run the original and save its return to a variable
+    -- (The arguments, in this case `self` and `from_debuff`, can be modified by your code if necessary)
+    -- Keep in mind the original function could also have multiple return values.
+    local ret = card_is_suit_ref(self, suit, bypass_debuff, flush_calc)
+
+    -- Here we optionally add any code we want to run after the function
+    print("Doing something after the original code")
+
+    -- Finally we return the original return.
+    -- (`ret` can be modified by your code if necessary)
+    return ret
+end
+
+
