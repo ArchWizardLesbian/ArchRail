@@ -1143,4 +1143,114 @@ function Card:is_suit(suit, bypass_debuff, flush_calc)
     return ret
 end
 
+SMODS.Joker({
+	key = "caine_eye_right",
+	atlas = "joke",
+	pos = { x = 4, y = 3 },
+    pixel_size = { h = 60, w = 61 },
+	rarity = 3,
+	cost = 7,
+	config = {
+		extra = {
+			odds = 7
+		},
+	},
+	unlocked = true,
+	discovered = false,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		local arch = card.ability.extra
+		return {
+			vars = { (G.GAME and G.GAME.probabilities.normal or 1), arch.odds },
+		}
+	end,
+    calculate = function(self, card, context)
+		if context.individual and context.cardarea == G.play then
+			if context.other_card.ability.effect == "Wild Card" and pseudorandom('archpretz') < G.GAME.probabilities.normal / card.ability.extra.odds and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+				G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                func = (function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card {
+                                set = "Tarot",
+                                key = "c_high_priestess"
+                            }
+                            G.GAME.consumeable_buffer = 0
+                            return true
+                        end
+                    }))
+                    SMODS.calculate_effect({ message = localize('k_plus_tarot'), colour = G.C.PURPLE },
+                        context.blueprint_card or card)
+                    return true
+                end)
+                }))
+                return nil, true -- This is for Joker retrigger purposes
+			end
+		end
+	end,
+    in_pool = function(self, args) --equivalent to `enhancement_gate = 'm_wild'`
+        for _, playing_card in ipairs(G.playing_cards or {}) do
+            if SMODS.has_enhancement(playing_card, 'm_wild') then
+                return true
+            end
+        end
+        return false
+    end,
+})
 
+SMODS.Joker({
+	key = "caine_eye_left",
+	atlas = "joke",
+	pos = { x = 3, y = 3 },
+    pixel_size = { h = 60, w = 61 },
+	rarity = 3,
+	cost = 7,
+	config = {
+		extra = {
+			odds = 4
+		},
+	},
+	unlocked = true,
+	discovered = false,
+	blueprint_compat = true,
+	loc_vars = function(self, info_queue, card)
+		local arch = card.ability.extra
+		return {
+			vars = { (G.GAME and G.GAME.probabilities.normal or 1), arch.odds },
+		}
+	end,
+    calculate = function(self, card, context)
+		if context.individual and context.cardarea == G.play then
+			if context.other_card.ability.effect == "Wild Card" and pseudorandom('archpretz') < G.GAME.probabilities.normal / card.ability.extra.odds and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+				G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                func = (function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card {
+                                set = "Tarot",
+                                key = "c_wheel_of_fortune"
+                            }
+                            G.GAME.consumeable_buffer = 0
+                            return true
+                        end
+                    }))
+                    SMODS.calculate_effect({ message = localize('k_plus_tarot'), colour = G.C.PURPLE },
+                        context.blueprint_card or card)
+                    return true
+                end)
+                }))
+                return nil, true -- This is for Joker retrigger purposes
+			end
+		end
+	end,
+    in_pool = function(self, args) --equivalent to `enhancement_gate = 'm_wild'`
+        for _, playing_card in ipairs(G.playing_cards or {}) do
+            if SMODS.has_enhancement(playing_card, 'm_wild') then
+                return true
+            end
+        end
+        return false
+    end,
+})

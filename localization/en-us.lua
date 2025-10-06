@@ -283,77 +283,23 @@ return {
                     "{C:inactive}(Trading Card + Flower Pot){}"
                 }
             },
-            j_arch_ametr = { --2 fusions so far
-                name = 'Ametrine',
-                text = { "{C:mult}+#1#{} Mult",
-                         "{C:spectral,E:1}Fusion Material{}"
+            j_arch_caine_eye_right = {
+                name = "Caine's Right Eye",
+                text = {
+                    "Played {C:attention}Wild{} cards",
+                    "have a {C:green}#1# in #2#{} chance to",
+                    "create a {C:attention}High Priestess{} card",
+                    "when scored"
                 }
             },
-            j_arch_sapphire = { --4 fusions so far
-                name = 'Sapphire',
-                text = { "{C:chips}+#1#{} Chips",
-                         "{C:spectral,E:1}Fusion Material{}"
+            j_arch_caine_eye_left = {
+                name = "Caine's Left Eye",
+                text = {
+                    "Played {C:attention}Wild{} cards",
+                    "have a {C:green}#1# in #2#{} chance to",
+                    "create a {C:attention}Wheel of Fortune{} card",
+                    "when scored"
                 }
-            },
-            j_arch_citrine = { --1 fusions so far
-                name = 'Citrine',
-                text = { "Earn {C:money}+$#1#{} at end of blind",
-                         "{C:spectral,E:1}Fusion Material{}"
-                }
-            },
-            j_arch_moonst = { --1 fusions so far
-                name = "Moonstone",
-                text = {
-                    "{C:green}#1# in #2#{} chance to",
-                    "upgrade level of",
-                    "played {C:attention}poker hand{}",
-                    "{C:spectral,E:1}Fusion Material{}"
-                },
-            },
-            j_arch_quartz = { --1 fusions so far
-                name = "Quartz",
-                text = {
-                    "{X:red,C:white}X0.5{} Mult for each",
-                    "empty {C:attention}Joker{} slot",
-                    "{s:0.8}Quartz included",
-                    "{C:inactive}(Currently {X:red,C:white} X#1# {C:inactive})",
-                    "{C:spectral,E:1}Fusion Material{}"
-                },
-            },
-            j_arch_obsid = { --1 fusions so far
-                name = "Obsidian",
-                text = {
-                    "{C:green}#1# in #2#{} chance to",
-                    "create a {C:tarot}Tarot{} card",
-                    "when {C:attention}Blind{} is selected",
-                    "{C:inactive}(Must have room)",
-                    "{C:spectral,E:1}Fusion Material{}"
-                },
-            },
-            j_arch_sunstone = { --1 fusions so far
-                name = "Sunstone",
-                text = {
-                    "{C:chips}+#1#{} Chip for",
-                    "each {C:money}$1{} you have",
-                    "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
-                    "{C:spectral,E:1}Fusion Material{}"
-                },
-            },
-            j_arch_cobalt = { --2 fusions so far
-                name = "Cobalt",
-                text = {
-                    "Each played card has a {C:green}#1# in #2#{}",
-                    "chance to be retriggered {C:attention}#3#{} time",
-                    "{C:spectral,E:1}Fusion Material{}"
-                },
-            },
-            j_arch_ruby = { --1 fusions so far
-                name = "Ruby",
-                text = {
-                    "If {C:attention}first discard{} of round",
-                    "has only {C:attention}1{} card, destroy it",
-                    "{C:spectral,E:1}Fusion Material{}"
-                },
             },
         },
         Enhanced = {},
