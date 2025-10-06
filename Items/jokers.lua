@@ -187,7 +187,7 @@ SMODS.Joker {
     end
     end,
 }
---[[
+
 SMODS.Joker {
     key = "geologist",
 	atlas = "joke",
@@ -195,18 +195,29 @@ SMODS.Joker {
     rarity = 2,
     blueprint_compat = true,
     cost = 6,
-    config = { extra = { rarmult = 5 }, },
+    config = { extra = { dollars = 2 }, },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.rarmult } }
     end,
-    add_to_deck = function(self, card, from_debuff)
-        G.GAME['arch_primer_mod'] = ((G.GAME['arch_primer_mod'] or 1)*card.ability.extra.rarmult)or G.GAME['arch_primer_mod']
-    end,
-    remove_from_deck = function(self, card, from_debuff)
-        G.GAME['arch_primer_mod'] = ((G.GAME['arch_primer_mod'] or 1)/card.ability.extra.rarmult) or G.GAME['arch_primer_mod']
+    calculate = function(self, card, context)
+		if context.individual and context.cardarea == G.play then
+			if context.other_card.ability.effect == "Stone Card" then
+				local arch = card.ability.extra
+				return{
+					dollars = arch.dollars
+				}
+			end
+		end
+	end,
+    in_pool = function(self, args) --equivalent to `enhancement_gate = 'm_stone'`
+        for _, playing_card in ipairs(G.playing_cards or {}) do
+            if SMODS.has_enhancement(playing_card, 'm_stone') then
+                return true
+            end
+        end
+        return false
     end,
 }
-]]
 
 SMODS.Joker {
     key = "redherr",
@@ -455,28 +466,23 @@ SMODS.Joker({
 })
 
 
-FusionJokers.fusions:add_fusion("j_joker_stencil", nil, false, "j_riff_raff", nil, false, "j_arch_inked", 10)
+FusionJokers.fusions:add_fusion("j_stencil", nil, false, "j_invisible", nil, false, "j_arch_inked", 8)
 SMODS.Joker({
     key = "inked",
     atlas = "joke",
     pos = { x = 4, y = 1 },
     rarity = "fuse_fusion",
-    cost = 10,
+    cost = 8,
     unlocked = true,
     discovered = false,
     eternal_compat = false,
     perishable_compat = false,
     blueprint_compat = true,
-    config = { extra = { xmult = 1 } },
+    config = { extra = { xmult = 4 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult } }
     end,
     calculate = function(self, card, context)
-        if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == "Tarot" then
-            local arch = card.ability.extra
-			arch.xmult = arch.xmult + (G.jokers.config.card_limit*0.04)
-			card_eval_status_text(card, 'extra', nil, nil, nil, { message = 'Inked!', colour = G.C.MULT })
-        end
         if context.joker_main then
             local arch = card.ability.extra
 			return {

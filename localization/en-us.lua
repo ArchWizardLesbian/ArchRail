@@ -54,7 +54,9 @@ return {
             j_arch_geologist = {
                 name = "Geologist",
                 text = {
-                    "{C:spectral}Primers{} are {X:spectral,C:white}X#1#{} more common",
+                    "Played {C:attention}Stone{} cards",
+                    "each earn {C:money}$#1#{}",
+                    "when scored"
                 },
             },
             j_arch_redherr = {
@@ -115,11 +117,8 @@ return {
             j_arch_inked = {
                 name = "Inked Joker",
                 text = {
-                    "Gains {X:red,C:white}X0.04{} Mult for",
-                    "each {C:attention}Joker{} slot when",
-                    "a {C:purple}Tarot{} card is used",
-                    "{C:inactive}(Currently {X:red,C:white} X#1# {C:inactive})",
-                    "{C:inactive}(Riff-Raff + Joker Stencil){}"
+                    "{X:red,C:white}X#1#{} Mult",
+                    "{C:inactive}(Invisible Joker + Joker Stencil){}"
                 },
             },
             j_arch_model = {
