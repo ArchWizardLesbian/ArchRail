@@ -197,7 +197,7 @@ SMODS.Joker {
     cost = 6,
     config = { extra = { dollars = 2 }, },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.rarmult } }
+        return { vars = { card.ability.extra.dollars } }
     end,
     calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play then
