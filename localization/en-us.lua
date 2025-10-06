@@ -274,6 +274,16 @@ return {
                     "played and scored"
                 }
             },
+            j_arch_blacklotus = {
+                name = 'Black Lotus',
+                text = {
+                    "If discarded hand contains a single",
+                    "{C:diamonds}Diamond{} card, {C:clubs}Club{} card, {C:hearts}Heart{} card,",
+                    "and {C:spades}Spade{} card, then destroy and earn {C:money}$#1#{}",
+                    "for each of them",
+                    "{C:inactive}(Trading Card + Flower Pot){}"
+                }
+            },
             j_arch_ametr = { --2 fusions so far
                 name = 'Ametrine',
                 text = { "{C:mult}+#1#{} Mult",

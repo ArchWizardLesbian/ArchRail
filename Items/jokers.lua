@@ -985,6 +985,68 @@ SMODS.Joker {
     end
 }
 
+FusionJokers.fusions:add_fusion("j_flower_pot", nil, false, "j_trading", nil, false, "j_arch_blacklotus", 12)
+SMODS.Joker {
+    key = "blacklotus",
+    blueprint_compat = false,
+    atlas = "joke",
+	pos = { x = 3, y = 5 },
+	rarity = "fuse_fusion",
+    cost = 12,
+    config = { extra = { moneygain = 2 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.moneygain } }
+    end,
+    calculate = function(self, card, context)
+        if context.pre_discard and G.hand.highlighted[1] and #G.hand.highlighted == 4 then
+            local suits = {
+                ['Hearts'] = 0,
+                ['Diamonds'] = 0,
+                ['Spades'] = 0,
+                ['Clubs'] = 0
+            }
+            for i = 1, #G.hand.highlighted do
+                if not SMODS.has_any_suit(G.hand.highlighted[i]) then
+                    if G.hand.highlighted[i]:is_suit('Hearts', true) and suits["Hearts"] == 0 then
+                        suits["Hearts"] = suits["Hearts"] + 1
+                    elseif G.hand.highlighted[i]:is_suit('Diamonds', true) and suits["Diamonds"] == 0 then
+                        suits["Diamonds"] = suits["Diamonds"] + 1
+                    elseif G.hand.highlighted[i]:is_suit('Spades', true) and suits["Spades"] == 0 then
+                        suits["Spades"] = suits["Spades"] + 1
+                    elseif G.hand.highlighted[i]:is_suit('Clubs', true) and suits["Clubs"] == 0 then
+                        suits["Clubs"] = suits["Clubs"] + 1
+                    end
+                end
+            end
+            for i = 1, #G.hand.highlighted do
+                if SMODS.has_any_suit(G.hand.highlighted[i]) then
+                    if G.hand.highlighted[i]:is_suit('Hearts') and suits["Hearts"] == 0 then
+                        suits["Hearts"] = suits["Hearts"] + 1
+                    elseif G.hand.highlighted[i]:is_suit('Diamonds') and suits["Diamonds"] == 0 then
+                        suits["Diamonds"] = suits["Diamonds"] + 1
+                    elseif G.hand.highlighted[i]:is_suit('Spades') and suits["Spades"] == 0 then
+                        suits["Spades"] = suits["Spades"] + 1
+                    elseif G.hand.highlighted[i]:is_suit('Clubs') and suits["Clubs"] == 0 then
+                        suits["Clubs"] = suits["Clubs"] + 1
+                    end
+                end
+            end
+            if suits['Hearts'] > 0 and suits['Diamonds'] > 0 and suits['Spades'] > 0 and suits['Clubs'] > 0 then
+                for i = 1, #G.hand.highlighted do
+                    G.hand.highlighted[i].black_lotus_destroy = true
+                end
+            end
+        end
+        if context.discard and context.other_card and context.other_card.black_lotus_destroy then
+            context.other_card.black_lotus_destroy = nil
+            return {
+                dollars = card.ability.extra.moneygain,
+                remove = true
+                }
+        end
+    end,
+}
+
 SMODS.Joker {
     key = "noita_ukko",
     blueprint_compat = true,
